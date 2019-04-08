@@ -1,0 +1,423 @@
+
+/************************************** font-size **************************************/
+@mixin fontSize($min,$max,$unit){
+    $num:0;
+	@for $i from $min through $max {
+		@if $unit == rem {
+			$num : $i/100	
+		}	
+		.f#{$i} {font-size: $num+$unit;}
+	}	
+}
+/**************************** margin | padding ****************************/
+@mixin margin($list,$unit){
+    $num:0;
+	@each $i in $list {
+		@if $unit == rem {
+			$num : $i/100	
+		}	
+		.mg_#{$i} {margin: $num+$unit;}
+		.mg_l_#{$i} {margin-left: $num+$unit;}		
+		.mg_r_#{$i} {margin-right: $num+$unit;}		
+		.mg_t_#{$i} {margin-top: $num+$unit;}		
+		.mg_b_#{$i} {margin-bottom: $num+$unit;}		
+	}
+}
+@mixin padding($list,$unit){
+    $num:0;
+	@each $i in $list {
+		@if $unit == rem {
+			$num : $i/100	
+		}	
+		.pd_#{$i} {padding: $num+$unit;}
+		.pd_l_#{$i} {padding-left: $num+$unit;}		
+		.pd_r_#{$i} {padding-right: $num+$unit;}		
+		.pd_t_#{$i} {padding-top: $num+$unit;}		
+		.pd_b_#{$i} {padding-bottom: $num+$unit;}		
+	}
+}
+@mixin radius($list,$unit){
+    $num:0;
+	@each $i in $list {
+		@if $unit == rem {
+			$num : $i/100	
+		}	
+		.radius#{$i} {border-radius: $num+$unit;}		
+	}
+}
+/************************************** mixin **************************************/
+//浏览器兼容-属性名 | Koala或gulp用autoprefixer自动编译
+@mixin css3($property, $value) {
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+        #{$prefix}#{$property}: $value;
+    }
+}
+//浏览器兼容-属性值 | Koala或gulp用autoprefixer自动编译
+@mixin css3val($property, $value) {
+    @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
+        #{$property}: $prefix+$value;
+    }
+}
+//border边框1px
+@mixin border($className: bd, $list:(0,1), $color:#ccc){
+    @each $size in $list {
+        .#{$className}_#{$size} {border:#{$size}px solid $color};
+        .#{$className}_t_#{$size} {border-top:#{$size}px solid $color};
+        .#{$className}_b_#{$size} {border-bottom:#{$size}px solid $color};
+        .#{$className}_l_#{$size} {border-left:#{$size}px solid $color};
+        .#{$className}_r_#{$size} {border-right:#{$size}px solid $color};	
+    }	
+}
+//before||after——边框0.5px
+@mixin halfBorder($className, $direction:top, $size:1px, $bg:#ddd, $fb:before) {
+	.#{$className} {position: relative}
+	.#{$className}:#{$fb} {
+		content: " ";
+	    position: absolute;
+	    border: 0;
+	    background: $bg;
+	    #{$direction}: 0;	    
+	    @if $direction == all {
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            background: transparent;
+            border: 1px solid $bg;
+            transform: scale(0.5);
+            transform-origin: 0 0;
+            box-sizing: border-box;
+            border-radius: 10px;
+	    } @else if $direction == top {
+		    left: 0;
+		    right: 0;	
+	    	height: $size; 
+		    transform-origin: 0 0;
+		    transform: scaleY(0.5);   	
+	    } @else if $direction == bottom {
+		    left: 0;
+		    right: 0;	
+	    	height: $size; 
+		    transform-origin: 0 100%;
+		    transform: scaleY(0.5);   	
+	    } @else if $direction == left {
+		    top: 20%;
+		    bottom: 20%;	
+	    	width: $size; 
+		    transform-origin: 0 0;
+		    transform: scaleX(0.5);   	
+	    } @else if $direction == right {
+		    top: 20%;
+		    bottom: 20%;	
+	    	width: $size; 
+		    transform-origin: 100% 0;
+		    transform: scaleX(0.5);   	
+	    }
+	};
+}
+//超出隐藏
+@mixin overhide($width,$height,$fontSize,$lineHeight) {
+	width: $width;
+	height: $height;
+	font-size: $fontSize;
+	line-height: $lineHeight;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+//多行超出银行
+@mixin overhidemore($width,$height,$fontSize,$lineHeight,$clamp) {
+	@include overhide($width,$height,$fontSize,$lineHeight);
+	white-space: normal;	
+	@include css3val(display,box);
+	@include css3(line-clamp,$clamp);
+	@include css3(box-orient,vertical);
+}
+//清楚浮动
+@mixin clearfix() {
+  &:before,&:after {
+    content: "";
+    display: table;
+  } &:after {
+    clear: both;
+  }
+}
+//透明度
+@mixin opacity($list) {
+    @each $item in $list {
+        .opacity#{$item} {
+            opacity: $item;
+        }
+    }
+}
+//绝对定位
+@mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: absolute;
+}
+//图片背景
+@mixin bg_png($url,$width:100%,$height:100%,$x:auto,$y:auto) {
+	background: url($url+".png") no-repeat top left;
+	background-size: $width $height;
+	background-position: $x,$y;
+}
+// 响应式icon
+@mixin iconRes($iconName,$url){
+    .icon_res{
+        position: relative;
+        display: inline-block;   
+        &.#{$iconName} {
+            &:before{
+                content:url($url+$iconName+".png");
+                width: 14px;
+                padding:10px;
+                position: relative;
+                top:2px;                    
+            }
+            &.active:before,&:hover:before{content:url($url+$iconName+"_hover.png");}
+            &:active:before{content:url($url+$iconName+"_click.png");}
+            &.disabled:before,&[disabled]:before{content:url($url+$iconName+"_disabled.png");}
+        }    
+    }
+}
+//伪类设置
+@mixin pseudJim($attr_name,$attr_val){
+	&:active,&:hover,&:link,&:visited,&:focus {#{$attr_name}:$attr_val;}
+}
+//交互颜色响应颜色
+@mixin colorRes($attr_name,$normal,$hover,$active,$disabled){
+	@if $attr_name == background-color {
+		@if $normal == #fff {
+			#{$attr_name}:$normal;
+		} @else {
+			#{$attr_name}:$normal;
+			color:#fff;
+		}
+		&.active,&:hover {#{$attr_name}:$hover;color:#fff;}
+		&:active,&:focus,&:visited {#{$attr_name}:$active;color:#fff;}
+	    &.disabled,&[disabled]{#{$attr_name}:$disabled;color:#757575;}		
+	} @else {
+		#{$attr_name}:$normal;
+		&.active,&:hover {#{$attr_name}:$hover;}
+		&:active,&:focus,&:visited{#{$attr_name}:$active;}
+	    &.disabled,&[disabled]{#{$attr_name}:$disabled;}		
+	}
+}
+@mixin btnRes($normal,$hover,$active,$disabled){
+	&{content:$normal}
+	&.active,&:hover {content:$hover}
+	&:active,&:focus,&:visited{content:$active}
+    &.disabled,&[disabled]{content:$disabled}		
+}
+// 边框交互颜色曾经报错： Required parameters must precede optional parameters(必需的参数必须在可选参数之前)
+@mixin borderRes($color,$normal,$hover,$active,$disabled,$size:1px,$style:solid){
+	color:$color;border:$size $style $normal;
+	&.active,&:hover {color:$hover;border:$size $style $hover;}
+	&:active,&:focus,&:visited{color:$active;border:$size $style $active;}
+    &.disabled,&[disabled]{color:$disabled;border:$size $style $disabled;}
+}
+* {
+	@include pseudJim(outline,none);
+	box-sizing:border-box;
+}
+// scroll滚动条样式。参考:https://www.lyblog.net/detail/314.html
+// 应用在父级层生效
+@mixin scrollbar($className:diyScroll,$width:6px,$height:6px,$radius:10px,$opcity:0.3,$blur:0,$shadow:0.3,$hover:0.5){
+	.#{$className} {
+		-webkit-overflow-scrolling : touch;
+	} 
+	.#{$className}::-webkit-scrollbar{
+	    width: $width;
+	    height:$height;
+	} 
+	// button:滚动条两端的按钮
+	.#{$className}::-webkit-scrollbar-button{}
+	// Track:外层轨道
+	.#{$className}::-webkit-scrollbar-track {
+	    border-radius: $radius;
+	    box-shadow: inset 0 0 $blur rgba(0,0,0,$shadow);
+		background: rgba(0,0,0,0);
+	} 
+	// track-piece:内层轨道
+	.#{$className}::-webkit-scrollbar-track-piece{
+
+	}
+	// Handle:滑块
+	.#{$className}::-webkit-scrollbar-thumb {
+	    border-radius: $radius;
+	    box-shadow: inset 0 0 $blur rgba(0,0,0,$shadow); 
+	    background: rgba(0,0,0,$opcity); 
+	    &:hover{// 滑块悬浮
+		    border-radius: $radius;
+		    box-shadow: inset 0 0 $blur rgba(0,0,0,$hover);
+		    background: rgba(0,0,0,$hover);  
+		}
+		&:vertical{// 纵向滑块
+			&:hover{// 纵向滑块悬浮
+			    cursor: pointer;
+			    cursor: -webkit-grab;
+			}
+		}
+	}
+	// corner:边角
+	.#{$className}::-webkit-scrollbar-corner{}
+	// resizer:右下角拖动块的样式
+	.#{$className}::-webkit-resizer {}
+	
+	// 滚动条样式在IE及Firefox不兼容，所有子层宽度要减小
+    /* Firefox 3.5+, IE 9/10, Opera */
+    // @media screen and (min-resolution: +72dpi) {width:258px;}
+    /* Firefox 3.6+ */
+    // @media screen and (-moz-images-in-menus:0) {width:258px;}
+    /* Firefox 4+ */
+    // @media screen and (min--moz-device-pixel-ratio:0) {width:258px;}
+    /* Chrome, Safari 3+ */
+    // @media screen and (-webkit-min-device-pixel-ratio:0) {width:270px;}
+}
+
+/************************************** simple:bailicangdu; **************************************/
+
+// 背景图片地址和大小
+@mixin bis($url) { 
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+}
+
+@mixin borderRadius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    -o-border-radius: $radius;
+    border-radius: $radius;
+}
+//定位全屏
+@mixin allcover{
+	position:absolute;
+	top:0;
+	right:0;
+}
+
+//定位上下左右居中
+@mixin center {  
+	position: absolute;
+	top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+//定位上下居中
+@mixin ct {  
+	position: absolute;
+	top: 50%;
+    transform: translateY(-50%);
+}
+
+//定位上下居中
+@mixin cl {  
+	position: absolute;
+	left: 50%;
+    transform: translateX(-50%);
+}
+
+//宽高
+@mixin wh($width, $height){
+	width: $width;
+	height: $height;
+}
+
+//字体大小、行高、字体
+@mixin font($size, $line-height, $family: 'Microsoft YaHei') {  
+	font: #{$size}/#{$line-height} $family;
+}
+
+//字体大小，颜色
+@mixin sc($size, $color){
+	font-size: $size;
+	color: $color;
+}
+
+//flex 布局和 子元素 对其方式
+@mixin fj($type: space-between){
+	display: flex;
+	justify-content: $type;
+
+}
+
+/************************************** others **************************************/
+
+// for link
+@mixin dz($time:0.25s){
+    -webkit-transition: all $time ease-in-out;
+    transition: all $time ease-in-out;
+}
+// text shadow
+@mixin ts($s1:1px,$s2:1px,$color:$cff){
+	text-shadow:
+	$s1 $s1 $s2 $color,
+	-$s1 $s1 $s2 $color,
+	$s1 (-$s1) $s2 $color,
+	-$s1 (-$s1) $s2 $color;
+}
+//
+@mixin jb($color1:#000,$color2:#fff,$deg:0){
+	background-image:-webkit-linear-gradient($deg+deg, $color2, $color1);
+	background-image:linear-gradient($deg+deg, $color2, $color1);
+}
+// rotate
+@mixin xz($deg:360){
+	transform:rotate($deg+deg);
+}
+// rotate and zoom
+@mixin xzfd($deg:360,$s1:1.2){
+	transform:rotate($deg+deg) scale($s1);
+}
+// zoom
+@mixin fd($s1:1.2){
+	transform:scale($s1);
+}
+// move
+@mixin yd($s1:0,$s2:0){
+	transform:translate($s1,$s2);
+}
+// no select
+@mixin ns{
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+// one line text for ...
+@mixin oneline($s1) {
+	overflow: hidden;
+	line-height: $s1;
+	height: $s1;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+// calc
+@mixin calc($property, $expression) {
+	#{$property}: -webkit-calc(#{$expression});
+	#{$property}: calc(#{$expression});
+}
+//
+@mixin hlh($s1) {
+	height: $s1;
+	line-height: $s1;
+	overflow: hidden;
+}
+// 格栅布局
+
+@mixin column($width,$gap){
+	-webkit-column-width:$width;
+	-moz-column-width:$width;
+	column-width:$width;
+	-webkit-column-gap:$gap;
+	-moz-column-gap:$gap;
+	column-gap:$gap;
+}

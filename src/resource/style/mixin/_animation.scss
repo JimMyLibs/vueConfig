@@ -1,0 +1,153 @@
+@charset "UTF-8";
+// 参考：http://isux.tencent.com/css3/?animation-timing-function
+/* **************************************** 动画效果 **************************************** */
+.class {	
+	//开启GPU硬件加速
+	opacity: 1;  	
+	backface-visibility: hidden;
+	transform-style:preserve-3d;
+    transform: translate3d(0, 0, 0);
+    transform: translateZ(0);
+    perspective: 1000;
+}
+/* **************************************** animation[动画] **************************************** */
+// 参考：http://www.runoob.com/cssref/css3-pr-animation.html
+// 语法：animation: name duration timing-function delay iteration-count direction fill-mode play-state;
+// animation-name[动画名称]
+// animation-duration[动画时间]:正数，单位可以是秒(s)或者毫秒(ms)。默认值为0，表明动画不执行。
+// animation-timing-function[播放方式]:ease[缓解效果]linear[线性效果]ease-in[渐显效果]ease-out[渐隐效果]ease-in-out[渐显渐隐效果]。
+// animation-delay[开始播放时间]:默认值0表示立即执行，正数为动画延迟一定时间，负数为截断一定时间内的动画。单位为秒(s)或毫秒(s)。
+// animation-iteration-count[播放次数]:number:次数.infinite:无限循环.
+// animation-direction[播放方向]:normal[正常]reverse[反向]alternate[正-正反交替循环]alternate-reverse[反-正反交替循环]
+// animation-fill-mode[播放后的状态]:none[默认]forwards[结束状态]backwards[开始状态]both[orwards-backwards]
+// animation-play-state[对象动画的状态]running[运动]paused[暂停]
+/* 自定义：动画  (名称,持续时间 ,播放方式 ,延迟  ,次数  ,方向      ,结束状态) */
+@mixin animation($name,$duration,$function,$delay,$count,$direction,$mode){
+    animation: $name $duration $function $delay $count $direction $mode;
+}
+// 动画名称(@keyframes)
+@mixin keyframes($name){   
+    @keyframes #{$name} {@content};    
+}
+/* **************************************** transform[变形基础] **************************************** */
+// 参考：http://www.runoob.com/cssref/css3-pr-transform.html
+// 动作：transform: none|transform-functions;
+/* transform-functions[关联动作] */
+// rotate()[旋转]
+// scale()[缩放]
+// translate()[位移]
+// skew()[倾斜]
+// matrix()[矩阵变形]
+// perspective[透视]
+@mixin rotate($deg){
+    transform:rotate(#{$deg}deg);
+}
+@mixin scale($num){
+    transform:scale(#{$num});
+}
+/* 关联属性 */
+// transform-origin[变形原点]
+// perspective-origin[透视原点]
+// backface-visibility[隐藏内容的背面]
+// transform-style[3D呈现]
+/* **************************************** transition:过渡 **************************************** */
+// 参考：http://www.runoob.com/cssref/css3-pr-transition.html
+// 语法：transition: property duration timing-function delay;
+// transition-property[过渡的CSS属性]
+// transition-duration[过渡时间]
+// transition-timing-function[过渡效果]
+// transition-delay[延迟时间]
+
+
+/* **************************************** vue动画 **************************************** */ 
+// 参考：https://cn.vuejs.org/v2/api/#transition
+// 参考：https://cn.vuejs.org/v2/guide/transitions.html
+// 左右滑动+渐显渐隐：<transition name="slide-fade">
+.slide-fade-enter-active,.slide-fade-leave-active {
+    transition: all .3s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+}
+// 渐显渐隐：<transition name="fade">
+.fade-enter-active,.fade-leave-active {
+    transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+/* **************************************** case:例子 **************************************** */
+// loading:来自weui-loading
+.loading {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    animation: weuiLoading 1s steps(12, end) infinite;
+    background: transparent url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpath fill='none' d='M0 0h100v100H0z'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23E9E9E9' rx='5' ry='5' transform='translate(0 -30)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23989697' rx='5' ry='5' transform='rotate(30 105.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%239B999A' rx='5' ry='5' transform='rotate(60 75.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23A3A1A2' rx='5' ry='5' transform='rotate(90 65 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23ABA9AA' rx='5' ry='5' transform='rotate(120 58.66 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23B2B2B2' rx='5' ry='5' transform='rotate(150 54.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23BAB8B9' rx='5' ry='5' transform='rotate(180 50 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23C2C0C1' rx='5' ry='5' transform='rotate(-150 45.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23CBCBCB' rx='5' ry='5' transform='rotate(-120 41.34 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23D2D2D2' rx='5' ry='5' transform='rotate(-90 35 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23DADADA' rx='5' ry='5' transform='rotate(-60 24.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='%23E2E2E2' rx='5' ry='5' transform='rotate(-30 -5.98 65)'/%3E%3C/svg%3E") no-repeat;
+    background-size: 100%;
+    &.loading_transparent,
+    .btn_loading &
+    {
+        background-image: url("data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 100 100'%3E%3Cpath fill='none' d='M0 0h100v100H0z'/%3E%3Crect xmlns='http://www.w3.org/2000/svg' width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.56)' rx='5' ry='5' transform='translate(0 -30)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.5)' rx='5' ry='5' transform='rotate(30 105.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.43)' rx='5' ry='5' transform='rotate(60 75.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.38)' rx='5' ry='5' transform='rotate(90 65 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.32)' rx='5' ry='5' transform='rotate(120 58.66 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.28)' rx='5' ry='5' transform='rotate(150 54.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.25)' rx='5' ry='5' transform='rotate(180 50 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.2)' rx='5' ry='5' transform='rotate(-150 45.98 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.17)' rx='5' ry='5' transform='rotate(-120 41.34 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.14)' rx='5' ry='5' transform='rotate(-90 35 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.1)' rx='5' ry='5' transform='rotate(-60 24.02 65)'/%3E%3Crect width='7' height='20' x='46.5' y='40' fill='rgba(255,255,255,.03)' rx='5' ry='5' transform='rotate(-30 -5.98 65)'/%3E%3C/svg%3E");
+    }
+}
+@keyframes weuiLoading {
+    0% {
+        transform: rotate3d(0, 0, 1, 0deg);
+    }
+
+    100% {
+        transform: rotate3d(0, 0, 1, 360deg);
+    }
+}
+
+//刀光剑影
+.killLight:before {
+    content: "";
+    position: absolute;
+    width: 0.8rem;
+    height: 100%;
+    bottom: 0;
+    right: -1.5rem;
+    overflow: hidden;
+}
+.killLight.active::before {
+    transition: right 0.5s;
+    right: 5rem;
+}
+
+// 呼吸breathe
+@keyframes breathe {
+    from {box-shadow: 0px 0px 1px rgba(27, 154, 247, 0.3);}
+    50% {box-shadow: 0px 0px 3px rgba(27, 154, 247, 0.8);}
+    to {box-shadow: 0px 0px 1px rgba(27, 154, 247, 0.3);} 
+}
+.breathe {
+    animation: breathe 2s ease infinite;
+}
+// 显示2s
+@keyframes show_s {
+    0% {opacity: 1;display: block;}
+    100% {opacity: 0;display: none;} 
+}
+.show1s{
+    animation: show_s 0.3s ease 1s forwards;
+}
+.show2s{
+    animation: show_s 0.3s ease 2s forwards;
+}
+// 渐显
+.fade {
+    opacity: 0;
+    transition: opacity .3s linear;
+}
+.fade.in {
+    opacity: 1;
+}
+.transition {
+    transition: all 0.3s;
+
+}

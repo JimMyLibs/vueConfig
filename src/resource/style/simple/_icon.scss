@@ -1,0 +1,298 @@
+
+    /************************************** 单选框 **************************************/
+    input.square[type="checkbox"] {
+        border: 1px solid #fff;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        width: 16px;
+        height: 16px;
+        background: white;
+        -webkit-appearance: none;
+        -webkit-border-radius: 2px;
+        border-radius: 2px;
+        vertical-align: middle;
+        color: #fff;
+        transition: all 0.1s linear;
+        cursor: pointer;
+        margin-right: 10px;
+        outline: none;
+        margin-top: -3px;
+        &:before {
+          content: "✔";
+          font-size: 8px;
+          outline: none;
+        }
+        &:checked {
+          background: #40BDEC;
+          border: none;
+          color: #fff;
+          outline: none;
+        }
+    }
+
+/********************************************************** CSS图形 **********************************************************/
+
+.cusp:after {// 尖括号
+    content: " ";
+    display: inline-block;
+    height: 6px;
+    width: 6px;
+    border-width: 1px 1px 0 0;
+    border-color: #C8C8CD;
+    border-style: solid;
+    transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+    position: relative;
+    top: -2px;
+    position: absolute;
+    top: 50%;
+    margin-top: -4px;
+    right: 2px;
+}
+.hookRem{// 对勾
+    width: 0.44rem;// 同步乘除相同倍数
+    height: 0.22rem;// 同步乘除相同倍数
+    position: relative;
+    left: 50%;
+    margin-left: -0.18rem;// 同步乘除相同倍数
+    transform: rotate(-45deg);
+    overflow: hidden;
+    &:before,&:after{
+        content: "";
+        position: absolute;
+        background: #2ad779;
+        border-radius: 0.01rem;// 同步乘除相同倍数
+    }
+    &:before{
+        width: 0.04rem;// 同步乘除相同倍数
+        height: 0.22rem;// 同步乘除相同倍数
+        left: 0;
+    }
+    &:after{
+        width: 0.4rem;// 同步乘除相同倍数
+        height: 0.04rem;// 同步乘除相同倍数
+        bottom: 0;
+    };
+    &.animation{
+        @keyframes dgLeft{0%{top:-100%}100%{top:0%}}
+        @keyframes dgRight{0%{left:-100%}100%{left:0%}}  
+        &:before{
+            animation: dgLeft 0.3s linear 0.5s 1 both;
+        }
+        &:after{
+            animation: dgRight 0.2s linear 0.8s 1 both;
+        };  
+    }
+}
+.hook{// 对勾
+    width: 44px;// 同步乘除相同倍数
+    height: 22px;// 同步乘除相同倍数
+    position: relative;
+    left: 50%;
+    margin-left: -18px;// 同步乘除相同倍数
+    transform: rotate(-45deg);
+    overflow: hidden;
+    &:before,&:after{
+        content: "";
+        position: absolute;
+        background: #10AB62;
+        border-radius: 0.8px;// 同步乘除相同倍数
+    }
+    &:before{
+        width: 4px;// 同步乘除相同倍数
+        height: 22px;// 同步乘除相同倍数
+        left: 0;
+    }
+    &:after{
+        width: 40px;// 同步乘除相同倍数
+        height: 4px;// 同步乘除相同倍数
+        bottom: 0;
+    };
+    &.animation{
+        @keyframes dgLeft{0%{top:-100%}100%{top:0%}}
+        @keyframes dgRight{0%{left:-100%}100%{left:0%}}  
+        &:before{
+            animation: dgLeft 0.3s linear 0.5s 1 both;
+        }
+        &:after{
+            animation: dgRight 0.2s linear 0.8s 1 both;
+        };  
+    }
+}
+/**************************** 三角形：https://css-tricks.com/examples/ShapesOfCSS/ ****************************/
+.triangle-left {
+    width: 0;
+    height: 0;
+    border-color: #000;
+    border-top: 50px solid transparent;
+    border-right: 100px solid #000;
+    border-bottom: 50px solid transparent;
+}
+.triangle-right {
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-left: 100px solid red;
+    border-bottom: 50px solid transparent;
+}
+
+// Arrows三角形提示框，From Bootstrap V3
+.popover{
+    &>.arrow,
+    &>.arrow:after {
+        position: absolute;
+        display: block;
+        width: 0;
+        height: 0;
+        border-color: transparent;
+        border-style: solid;
+    }
+    &>.arrow {
+        border-width: 7px;
+        &:after {
+            border-width: 6px;
+            content: "";
+        }
+    }
+    &.top>.arrow {
+        left: 50%;
+        margin-left: -7px;
+        border-bottom-width: 0;
+        border-top-color: #c3c3c3;
+        //border-top-color: rgba(0, 0, 0, 0.25);
+        bottom: -7px;
+        &:after {
+            content: " ";
+            bottom: 1px;
+            margin-left: -6px;
+            border-bottom-width: 0;
+            border-top-color: #fafafa;
+        }
+    }
+    &.right>.arrow {
+        top: 50%;
+        left: -7px;
+        margin-top: -7px;
+        border-left-width: 0;
+        border-right-color: #c3c3c3;
+        //border-right-color: rgba(0, 0, 0, 0.25);
+        &:after {
+            content: " ";
+            left: 1px;
+            bottom: -6px;
+            border-left-width: 0;
+            border-right-color: #fafafa;
+        }
+    }
+    &.bottom>.arrow {
+        left: 50%;
+        margin-left: -7px;
+        border-top-width: 0;
+        border-bottom-color: #c3c3c3;
+        //border-bottom-color: rgba(0, 0, 0, 0.25);
+        top: -7px;
+        &:after {
+            content: " ";
+            top: 1px;
+            margin-left: -6px;
+            border-top-width: 0;
+            border-bottom-color: #fafafa;
+        }
+    }
+    &.left>.arrow {
+        top: 50%;
+        right: -7px;
+        margin-top: -7px;
+        border-right-width: 0;
+        border-left-color: #c3c3c3;
+        //border-left-color: rgba(0, 0, 0, 0.25);
+        &:after {
+            content: " ";
+            right: 1px;
+            border-right-width: 0;
+            border-left-color: #fafafa;
+            bottom: -6px;
+        }
+    }
+}
+// 三角形对话框有border
+.arrow_up {
+    position: relative;
+    background: #fff;
+    border: 1px solid #d5d5d5;
+    &:after, &:before {
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+    }
+    &:after {
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: #fff;
+        border-width: 10px;
+        margin-left: -10px;
+    }
+    &:before {
+        border-color: rgba(213, 213, 213, 0);
+        border-bottom-color: #d5d5d5;
+        border-width: 11px;
+        margin-left: -11px;
+    }
+}
+
+// 三角对话框无border
+.arrow_up_noBd {
+    position: relative;
+    background: #fffafa;
+    &:after {
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(255, 250, 250, 0);
+        border-bottom-color: #fffafa;
+        border-width: 8px;
+        margin-left: -8px;
+    }
+}
+// css空心箭头
+.arrowUp:after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #c0c0c0;
+    border-right: 1px solid #c0c0c0;
+    transform: rotate(-45deg);
+    transform-origin: center;
+
+}
+.arrowDown:after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-bottom: 1px solid #c0c0c0;
+    border-right: 1px solid #c0c0c0;
+    transform: rotate(45deg);
+    transform-origin: center;
+
+}
+.arrowRight:after {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid #c0c0c0;
+    border-right: 1px solid #c0c0c0;
+    transform: rotate(45deg);
+    transform-origin: center;
+}

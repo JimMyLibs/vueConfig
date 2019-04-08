@@ -1,0 +1,278 @@
+
+/**************************** 自定义ElementUI颜色变量 ****************************/   
+
+/* Colors
+-------------------------- */
+$--color-primary: $blue;
+$--color-danger: $red;
+
+$--border-color-base: #d9d9d9;
+/*$--color-info: #E9E9E9;*/
+$--color-text-secondary: #E9E9E9;
+
+/* Font
+-------------------------- */
+$--font-color-disabled-base: #aaa;
+
+/* Background
+-------------------------- */
+$--background-color-base: #F7FBFC;
+
+
+/* 改变 icon 字体路径变量，必需 */
+$--font-path: '~element-ui/lib/theme-chalk/fonts';
+
+/*@import "~element-ui/packages/theme-chalk/src/index";*/
+
+/**************************** element全局样式 ****************************/
+
+/* element全局样式 */
+.el-button.is-disabled,
+.el-button.is-disabled:hover,
+.el-button.is-disabled:focus,
+.el-button.is-disabled:active {
+    color: #aaa !important;
+    background-color: #E9E9E9 !important;
+    border-color: #E9E9E9 !important;
+}
+.el-button--primary.is-plain {
+    color: $darkBlue;
+    background: #fff;
+    border: 1px solid $darkBlue;
+}
+.el-button--medium{
+    padding:10px 25px;
+}
+/* 下拉选择框 */
+.el-select-dropdown {
+    .el-scrollbar {
+        .el-select-dropdown__wrap.el-scrollbar__wrap {
+            .el-scrollbar__view.el-select-dropdown__list {
+                .el-select-dropdown__item.hover,
+                .el-select-dropdown__item:hover {
+                    color: #fff;
+                    background-color: $blue;
+                }
+            }
+        }
+    }
+}
+/* 右上角提示窗 */
+.el-notification__group {
+    .el-notification__title {
+        display: none;
+    }
+    .el-notification__content {
+        margin: 2px 0 0 0;
+    }
+}
+/* 分页 */
+.pagination{
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 60px;
+    .el-pagination{
+        .el-input__inner{
+            line-height: 28px;
+        }
+        .el-pagination__jump{
+            .el-input{
+                width: 50px;
+            }            
+        }
+    }
+}
+/* 对框框 */
+.el-dialog{
+    border-radius: 4px;
+    overflow: hidden;
+    .el-dialog__header{
+        padding:12px 20px;
+        background: #F9FAFA;
+        text-align: left;
+        .el-dialog__title{
+            font-size:16px;
+            color:#333;                
+        }
+        .el-dialog__headerbtn{
+            top: 13px;
+            right: 13px;
+        }
+    }
+    .el-dialog__body{
+        padding:34px 0 24px 40px;
+        .el-input {
+            width: 220px;
+            height: 38px;
+            margin-left:10px;
+            .el-input__inner{
+                border-radius: 2px;
+            }
+        }            
+    }             
+} 
+/* MessageBox.confirm */
+.el-message-box{
+    width:320px;
+    border-radius: 4px;
+    overflow: hidden;
+    padding-bottom: 20px;
+    .el-message-box__header{
+        padding:18px 20px;
+        background: #F9FAFA;
+        text-align: left;
+        .el-message-box__title{
+            font-size:16px;
+            color:#333;                
+        }
+        .el-message-box__headerbtn{
+            top: 16px;
+            right: 13px;
+        }
+    }
+    .el-message-box__content{
+        padding:34px 0 24px 40px; 
+        .el-message-box__status{
+            margin-top: 5px;
+            &.el-icon-warning{
+                &:before{
+                    // content:url('./resource/img/icon/warning.png');// 植入APP.vue文件
+                }
+            }
+        }  
+        .el-message-box__message{
+            margin-left:20px;
+        }                
+    }         
+    .el-message-box__btns{
+        text-align: center;
+        .el-button{
+            padding:10px 26px;
+            font-size: 14px;
+        }
+    }
+}
+/* notification */
+.el-notification{
+    &.center-center{
+        position: fixed;
+        width: auto !important;
+        top:50% !important;
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%,-100%);
+        padding:30px 40px 30px 20px;
+        background: rgba(0,0,0,0.65);
+        border:0;
+        .el-notification__group{
+            .el-notification__content{
+                color:#fff;
+                font-size:16px;
+            }
+            .el-notification__closeBtn{
+                top:10px;
+            }
+        }        
+    }
+}
+/* 表格 */
+.el-table{
+    border:1px solid #E4E7F2;
+    text-align: center;
+    .table_hd{
+        .table_th{
+            color:#292E32;
+            background: #EAEEF0;
+            font-size: 14px;
+            font-weight: normal;
+            text-align: center;
+        }
+    }
+    .table_tr{
+        &:hover{
+            .table_td{
+                background:#F0FAFF;
+            }
+        }
+        .table_td{
+            color:#55616A;
+            border-bottom:1px solid #E4E7F2;
+            font-size: 14px;
+            .oprIcon{
+                color:#55616A;
+                &:hover{
+                    color:#40BDEC;
+                }
+            }
+            .el-input {
+                width: 100%;
+                height: 30px;
+                .el-input__inner{
+                    height:30px;
+                    line-height: 30px;
+                }
+                .el-input__icon{
+                    line-height: 30px;                        
+                }
+            }
+        }
+    }
+}
+/* input输入框圆角 */
+.el-input__inner{
+    border-radius: 2px;
+    border: 1px solid #E4E7F2;
+}
+/* 时间范围选择中间的【至】字 */
+.el-date-editor--daterange{
+    .el-range-separator{
+        width: 8%;
+    }                
+}
+/* DatePicker 日期选择器：快捷选项 */
+.el-picker-panel__sidebar{
+    overflow: hidden;
+}
+/* 表单必选 * 标识 */
+.el-form-item.is-required .el-form-item__label:before {
+    content: none;
+}
+/* 表单验证  */
+.solid_red{
+    .el-input__inner,.el-radio__inner{
+        border-color: $red;
+    }
+}
+/* 表格里面输入框查看状态 */
+#app{
+    .el-input{
+        &.is-disabled{
+            &,*{
+                border:0;
+                background: #f7f7f7;
+                color:#333;
+                cursor: auto;
+                .el-input__suffix{
+                    display: none;
+                }
+            }
+        }
+    } 
+    .table_tr{
+        &,&:hover{
+            .el-input{
+                &.is-disabled{
+                    &,*{
+                        border:0;
+                        background: transparent;
+                        color:#333;
+                        cursor: auto;
+                        .el-input__suffix{
+                            display: none;
+                        }
+                    }
+                }
+            }            
+        }
+    }
+}

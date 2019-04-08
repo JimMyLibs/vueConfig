@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/************************************** 自适应（移动端）**************************************/
+/* 原始基准尺寸6s:100px;750标注/200=浏览器所得 */
+/* (有UI图:0.5px)标注=sas：UI图以750px为标注尺寸,测试环境以6s(375px)为基准，例：UI:750px + sass:750rem = 测试环境显示为375px */
+/* (没UI图:1px)html=sass：所见即所得，sass所写尺寸=浏览器显示尺寸 */
+@mixin mscreen($min:375px,$max:383px,$basefont:100px){
+	@media screen and (min-width:$min) and (max-width:$max){
+		html {
+			@if $min <= 319 {
+				font-size:$basefont * 320px / 375px;
+			} @else if $min >= 640 {
+				font-size:$basefont * 640px / 375px;
+				body,.modal,.head,.foot {	
+					max-width: 640px;
+					margin: 0 auto;
+				}
+			} @else {
+				font-size: $basefont * $min / 375px;
+			}				
+		}	
+	}
+}
+@include mscreen(0px,319px);
+@include mscreen(320px,359px);//320px显示屏样式 4/4S/5C/5S/黑莓Z30
+@include mscreen(360px,374px);//360px显示屏样式 千元安卓机
+@include mscreen(375px,383px);//375px显示屏样式 6S
+@include mscreen(384px,399px);//384px显示屏样式 黑莓Z10/谷歌/Nexus6/LG Optimus G
+@include mscreen(400px,413px);//400px显示屏样式
+@include mscreen(414px,423px);//414px显示屏样式 6p/6sp/7p/7sp
+@include mscreen(424px,479px);//424px显示屏样式 LG 4X
+@include mscreen(480px,539px);//480px显示屏样式 索尼MT27i Xperia sola
+@include mscreen(540px,639px);//540px显示屏样式 摩托罗拉Droid3/4/Razr Atrix 4g
+@include mscreen(640px,9999px);//640px以上显示屏样式 平板及PC产品
