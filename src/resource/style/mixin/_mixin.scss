@@ -46,19 +46,19 @@
 	}
 }
 /************************************** mixin **************************************/
-//浏览器兼容-属性名 | Koala或gulp用autoprefixer自动编译
+/* 浏览器兼容-属性名 | Koala或gulp用autoprefixer自动编译 */
 @mixin css3($property, $value) {
     @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
         #{$prefix}#{$property}: $value;
     }
 }
-//浏览器兼容-属性值 | Koala或gulp用autoprefixer自动编译
+/* 浏览器兼容-属性值 | Koala或gulp用autoprefixer自动编译 */
 @mixin css3val($property, $value) {
     @each $prefix in -webkit-, -moz-, -ms-, -o-, '' {
         #{$property}: $prefix+$value;
     }
 }
-//border边框1px
+/* border边框1px */
 @mixin border($className: bd, $list:(0,1), $color:#ccc){
     @each $size in $list {
         .#{$className}_#{$size} {border:#{$size}px solid $color};
@@ -68,7 +68,7 @@
         .#{$className}_r_#{$size} {border-right:#{$size}px solid $color};	
     }	
 }
-//before||after——边框0.5px
+/* before||after——边框0.5px */
 @mixin halfBorder($className, $direction:top, $size:1px, $bg:#ddd, $fb:before) {
 	.#{$className} {position: relative}
 	.#{$className}:#{$fb} {
@@ -115,7 +115,7 @@
 	    }
 	};
 }
-//超出隐藏
+/* 超出隐藏 */
 @mixin overhide($width,$height,$fontSize,$lineHeight) {
 	width: $width;
 	height: $height;
@@ -125,7 +125,7 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-//多行超出银行
+/* 多行超出银行 */
 @mixin overhidemore($width,$height,$fontSize,$lineHeight,$clamp) {
 	@include overhide($width,$height,$fontSize,$lineHeight);
 	white-space: normal;	
@@ -133,7 +133,7 @@
 	@include css3(line-clamp,$clamp);
 	@include css3(box-orient,vertical);
 }
-//清楚浮动
+/* 清楚浮动 */
 @mixin clearfix() {
   &:before,&:after {
     content: "";
@@ -142,7 +142,7 @@
     clear: both;
   }
 }
-//透明度
+/* 透明度 */
 @mixin opacity($list) {
     @each $item in $list {
         .opacity#{$item} {
@@ -150,7 +150,7 @@
         }
     }
 }
-//绝对定位
+/* 绝对定位 */
 @mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
   top: $top;
   right: $right;
@@ -158,13 +158,13 @@
   left: $left;
   position: absolute;
 }
-//图片背景
+/* 图片背景 */
 @mixin bg_png($url,$width:100%,$height:100%,$x:auto,$y:auto) {
 	background: url($url+".png") no-repeat top left;
 	background-size: $width $height;
 	background-position: $x,$y;
 }
-// 响应式icon
+/* 响应式icon */
 @mixin iconRes($iconName,$url){
     .icon_res{
         position: relative;
@@ -183,11 +183,19 @@
         }    
     }
 }
-//伪类设置
-@mixin pseudJim($attr_name,$attr_val){
+/* 伪类设置 */
+@mixin colorFixed($attr_name,$attr_val){
+    #{$attr_name}:$attr_val;
 	&:active,&:hover,&:link,&:visited,&:focus {#{$attr_name}:$attr_val;}
 }
-//交互颜色响应颜色
+@mixin colorResLite($attr_name,$attr_val){
+    #{$attr_name}:$attr_val;
+	&:active,&:hover,&:link,&:visited,&:focus,&.disabled,&[disabled] {#{$attr_name}:$attr_val;}
+    &.active,&:hover { opacity: 0.8;}
+    &:active,&:focus,&:visited{ opacity: 0.9;}
+    &.disabled,&[disabled]{ opacity: 0.65;}	
+}
+/* 交互颜色响应颜色 */
 @mixin colorRes($attr_name,$normal,$hover,$active,$disabled){
 	@if $attr_name == background-color {
 		@if $normal == #fff {
@@ -212,19 +220,15 @@
 	&:active,&:focus,&:visited{content:$active}
     &.disabled,&[disabled]{content:$disabled}		
 }
-// 边框交互颜色曾经报错： Required parameters must precede optional parameters(必需的参数必须在可选参数之前)
+/* 边框交互颜色曾经报错： Required parameters must precede optional parameters(必需的参数必须在可选参数之前) */
 @mixin borderRes($color,$normal,$hover,$active,$disabled,$size:1px,$style:solid){
 	color:$color;border:$size $style $normal;
 	&.active,&:hover {color:$hover;border:$size $style $hover;}
 	&:active,&:focus,&:visited{color:$active;border:$size $style $active;}
     &.disabled,&[disabled]{color:$disabled;border:$size $style $disabled;}
 }
-* {
-	@include pseudJim(outline,none);
-	box-sizing:border-box;
-}
-// scroll滚动条样式。参考:https://www.lyblog.net/detail/314.html
-// 应用在父级层生效
+/* scroll滚动条样式。参考:https://www.lyblog.net/detail/314.html */
+/* 应用在父级层生效 */
 @mixin scrollbar($className:diyScroll,$width:6px,$height:6px,$radius:10px,$opcity:0.3,$blur:0,$shadow:0.3,$hover:0.5){
 	.#{$className} {
 		-webkit-overflow-scrolling : touch;
@@ -233,54 +237,54 @@
 	    width: $width;
 	    height:$height;
 	} 
-	// button:滚动条两端的按钮
+	/* button:滚动条两端的按钮 */
 	.#{$className}::-webkit-scrollbar-button{}
-	// Track:外层轨道
+	/* Track:外层轨道 */
 	.#{$className}::-webkit-scrollbar-track {
 	    border-radius: $radius;
 	    box-shadow: inset 0 0 $blur rgba(0,0,0,$shadow);
 		background: rgba(0,0,0,0);
 	} 
-	// track-piece:内层轨道
+	/* track-piece:内层轨道 */
 	.#{$className}::-webkit-scrollbar-track-piece{
 
 	}
-	// Handle:滑块
+	/* Handle:滑块 */
 	.#{$className}::-webkit-scrollbar-thumb {
 	    border-radius: $radius;
 	    box-shadow: inset 0 0 $blur rgba(0,0,0,$shadow); 
 	    background: rgba(0,0,0,$opcity); 
-	    &:hover{// 滑块悬浮
+	    &:hover{/* 滑块悬浮 */
 		    border-radius: $radius;
 		    box-shadow: inset 0 0 $blur rgba(0,0,0,$hover);
 		    background: rgba(0,0,0,$hover);  
 		}
-		&:vertical{// 纵向滑块
-			&:hover{// 纵向滑块悬浮
+		&:vertical{/* 纵向滑块 */
+			&:hover{/* 纵向滑块悬浮 */
 			    cursor: pointer;
 			    cursor: -webkit-grab;
 			}
 		}
 	}
-	// corner:边角
+	/* corner:边角 */
 	.#{$className}::-webkit-scrollbar-corner{}
-	// resizer:右下角拖动块的样式
+	/* resizer:右下角拖动块的样式 */
 	.#{$className}::-webkit-resizer {}
 	
-	// 滚动条样式在IE及Firefox不兼容，所有子层宽度要减小
+	/* 滚动条样式在IE及Firefox不兼容，所有子层宽度要减小 */
     /* Firefox 3.5+, IE 9/10, Opera */
-    // @media screen and (min-resolution: +72dpi) {width:258px;}
+    /* @media screen and (min-resolution: +72dpi) {width:258px;} */
     /* Firefox 3.6+ */
-    // @media screen and (-moz-images-in-menus:0) {width:258px;}
+    /* @media screen and (-moz-images-in-menus:0) {width:258px;} */
     /* Firefox 4+ */
-    // @media screen and (min--moz-device-pixel-ratio:0) {width:258px;}
+    /* @media screen and (min--moz-device-pixel-ratio:0) {width:258px;} */
     /* Chrome, Safari 3+ */
-    // @media screen and (-webkit-min-device-pixel-ratio:0) {width:270px;}
+    /* @media screen and (-webkit-min-device-pixel-ratio:0) {width:270px;} */
 }
 
 /************************************** simple:bailicangdu; **************************************/
 
-// 背景图片地址和大小
+/* 背景图片地址和大小 */
 @mixin bis($url) { 
 	background-image: url($url);
 	background-repeat: no-repeat;
@@ -294,14 +298,14 @@
     -o-border-radius: $radius;
     border-radius: $radius;
 }
-//定位全屏
+/* 定位全屏 */
 @mixin allcover{
 	position:absolute;
 	top:0;
 	right:0;
 }
 
-//定位上下左右居中
+/* 定位上下左右居中 */
 @mixin center {  
 	position: absolute;
 	top: 50%;
@@ -309,38 +313,38 @@
     transform: translate(-50%, -50%);
 }
 
-//定位上下居中
+/* 定位上下居中 */
 @mixin ct {  
 	position: absolute;
 	top: 50%;
     transform: translateY(-50%);
 }
 
-//定位上下居中
+/* 定位上下居中 */
 @mixin cl {  
 	position: absolute;
 	left: 50%;
     transform: translateX(-50%);
 }
 
-//宽高
+/* 宽高 */
 @mixin wh($width, $height){
 	width: $width;
 	height: $height;
 }
 
-//字体大小、行高、字体
+/* 字体大小、行高、字体 */
 @mixin font($size, $line-height, $family: 'Microsoft YaHei') {  
 	font: #{$size}/#{$line-height} $family;
 }
 
-//字体大小，颜色
+/* 字体大小，颜色 */
 @mixin sc($size, $color){
 	font-size: $size;
 	color: $color;
 }
 
-//flex 布局和 子元素 对其方式
+/* flex 布局和 子元素 对其方式 */
 @mixin fj($type: space-between){
 	display: flex;
 	justify-content: $type;
@@ -349,12 +353,12 @@
 
 /************************************** others **************************************/
 
-// for link
+/* for link */
 @mixin dz($time:0.25s){
     -webkit-transition: all $time ease-in-out;
     transition: all $time ease-in-out;
 }
-// text shadow
+/* text shadow */
 @mixin ts($s1:1px,$s2:1px,$color:$cff){
 	text-shadow:
 	$s1 $s1 $s2 $color,
@@ -362,28 +366,28 @@
 	$s1 (-$s1) $s2 $color,
 	-$s1 (-$s1) $s2 $color;
 }
-//
+/*  */
 @mixin jb($color1:#000,$color2:#fff,$deg:0){
 	background-image:-webkit-linear-gradient($deg+deg, $color2, $color1);
 	background-image:linear-gradient($deg+deg, $color2, $color1);
 }
-// rotate
+/* rotate */
 @mixin xz($deg:360){
 	transform:rotate($deg+deg);
 }
-// rotate and zoom
+/* rotate and zoom */
 @mixin xzfd($deg:360,$s1:1.2){
 	transform:rotate($deg+deg) scale($s1);
 }
-// zoom
+/* zoom */
 @mixin fd($s1:1.2){
 	transform:scale($s1);
 }
-// move
+/* move */
 @mixin yd($s1:0,$s2:0){
 	transform:translate($s1,$s2);
 }
-// no select
+/* no select */
 @mixin ns{
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
@@ -392,7 +396,7 @@
 	-ms-user-select: none;
 	user-select: none;
 }
-// one line text for ...
+/* one line text for ... */
 @mixin oneline($s1) {
 	overflow: hidden;
 	line-height: $s1;
@@ -400,18 +404,18 @@
 	white-space: nowrap;
 	text-overflow: ellipsis;
 }
-// calc
+/* calc */
 @mixin calc($property, $expression) {
 	#{$property}: -webkit-calc(#{$expression});
 	#{$property}: calc(#{$expression});
 }
-//
+/*  */
 @mixin hlh($s1) {
 	height: $s1;
 	line-height: $s1;
 	overflow: hidden;
 }
-// 格栅布局
+/* 格栅布局 */
 
 @mixin column($width,$gap){
 	-webkit-column-width:$width;
