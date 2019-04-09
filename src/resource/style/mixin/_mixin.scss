@@ -190,7 +190,6 @@
 }
 @mixin colorResLite($attr_name,$attr_val){
     #{$attr_name}:$attr_val;
-	&:active,&:hover,&:link,&:visited,&:focus,&.disabled,&[disabled] {#{$attr_name}:$attr_val;}
     &.active,&:hover { opacity: 0.8;}
     &:active,&:focus,&:visited{ opacity: 0.9;}
     &.disabled,&[disabled]{ opacity: 0.65;}	
