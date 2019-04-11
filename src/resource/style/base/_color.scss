@@ -1,10 +1,10 @@
 
-
+/* js共享变量 */
+.js-primary{ color: $js-primary }
 /* 伪类 */
 a {
     @include colorFixed(text-decoration,none)
 }
-.primary-color{ color: $primary-color }
 /**************************** 文本颜色 ****************************/ 
 .f_l{ @include colorFixed(color,$l) }
 .f_m{ @include colorFixed(color,$m) }

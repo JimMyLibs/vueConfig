@@ -1,9 +1,9 @@
 // src/styles/variables.js
 module.exports = {
     // 主颜色
-    'primary-color': '#0C4CFF',
+    'js-primary': '#0C4CFF',
     // 出错颜色
-    'error-color': '#F15533',
+    'js-error': '#F15533',
     // 成功颜色
-    'success-color': '#35B34A',
-  };
+    'js-success': '#35B34A',
+};
