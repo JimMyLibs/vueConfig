@@ -1,16 +1,18 @@
-import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
-import './registerServiceWorker'
+import modules from './store'
+import './worker/registerServiceWorker'
 
-import './resource/js/init'
-import './resource/style/index.scss'
+import createApp from '@/resource/vues/createApp'
 
 Vue.config.productionTip = false
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+console.log('环境变量', process.env)
+
+
+createApp({
+    App,
+    conf,
+    router,
+    modules,
+  })

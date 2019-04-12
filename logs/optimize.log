@@ -1,0 +1,18 @@
+
+  // 原始
+  dist/js/chunk-vendors.de14fef7.js         118.07 KiB       41.10 KiB
+  dist/js/app.6aa5f968.js                   5.20 KiB         2.46 KiB
+  dist/service-worker.js                    0.94 KiB         0.54 KiB
+  dist/precache-manifest.a4f77f5a003b3b1    0.53 KiB         0.26 KiB
+  f5d512c2d17503846.js
+  dist/js/about.0deb0427.js                 0.44 KiB         0.31 KiB
+  dist/css/app.404bc9f8.css                 1.75 KiB         0.55 KiB
+
+  // 引入框架
+  dist/js/chunk-vendors.46512e9d.js         165.20 KiB       55.99 KiB
+  dist/js/app.9d7483c5.js                   33.70 KiB        11.43 KiB
+  dist/service-worker.js                    0.94 KiB         0.53 KiB
+  dist/precache-manifest.709eca106e2dc02    0.53 KiB         0.26 KiB
+  9d6ebb524ca831dd7.js
+  dist/js/about.45cb0501.js                 0.45 KiB         0.31 KiB
+  dist/css/app.61c57267.css                 1.74 KiB         0.55 KiB

@@ -1,6 +1,6 @@
 {
   mode: 'development',
-  context: 'd:\\home\\npmjs\\vueConfig',
+  context: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig',
   devtool: 'cheap-module-eval-source-map',
   node: {
     setImmediate: false,
@@ -12,15 +12,17 @@
     child_process: 'empty'
   },
   output: {
-    path: 'd:\\home\\npmjs\\vueConfig\\dist',
+    path: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/dist',
     filename: '[name].js',
     publicPath: '/',
     globalObject: 'this'
   },
   resolve: {
     alias: {
-      '@': 'd:\\home\\npmjs\\vueConfig\\src',
-      vue$: 'vue/dist/vue.runtime.esm.js'
+      '@': '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/src',
+      vue$: 'vue/dist/vue.runtime.esm.js',
+      comm: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/src/resouce',
+      config: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/src/config'
     },
     extensions: [
       '.mjs',
@@ -32,17 +34,17 @@
     ],
     modules: [
       'node_modules',
-      'd:\\home\\npmjs\\vueConfig\\node_modules',
-      'd:\\home\\npmjs\\vueConfig\\node_modules\\@vue\\cli-service\\node_modules'
+      '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules',
+      '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules/_@vue_cli-service@3.5.3@@vue/cli-service/node_modules'
     ]
   },
   resolveLoader: {
     modules: [
-      'd:\\home\\npmjs\\vueConfig\\node_modules\\@vue\\cli-plugin-eslint\\node_modules',
-      'd:\\home\\npmjs\\vueConfig\\node_modules\\@vue\\cli-plugin-babel\\node_modules',
+      '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules/_@vue_cli-plugin-eslint@3.5.1@@vue/cli-plugin-eslint/node_modules',
+      '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules/_@vue_cli-plugin-babel@3.5.5@@vue/cli-plugin-babel/node_modules',
       'node_modules',
-      'd:\\home\\npmjs\\vueConfig\\node_modules',
-      'd:\\home\\npmjs\\vueConfig\\node_modules\\@vue\\cli-service\\node_modules'
+      '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules',
+      '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules/_@vue_cli-service@3.5.3@@vue/cli-service/node_modules'
     ]
   },
   module: {
@@ -52,23 +54,21 @@
       {
         test: /\.vue$/,
         use: [
-          /* config.module.rule('vue').use('cache-loader') */
           {
             loader: 'cache-loader',
             options: {
-              cacheDirectory: 'd:\\home\\npmjs\\vueConfig\\node_modules\\.cache\\vue-loader',
-              cacheIdentifier: '8064ce44'
+              cacheDirectory: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules/.cache/vue-loader',
+              cacheIdentifier: '3386901d'
             }
           },
-          /* config.module.rule('vue').use('vue-loader') */
           {
             loader: 'vue-loader',
             options: {
               compilerOptions: {
                 preserveWhitespace: false
               },
-              cacheDirectory: 'd:\\home\\npmjs\\vueConfig\\node_modules\\.cache\\vue-loader',
-              cacheIdentifier: '8064ce44'
+              cacheDirectory: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules/.cache/vue-loader',
+              cacheIdentifier: '3386901d'
             }
           }
         ]
@@ -77,7 +77,6 @@
       {
         test: /\.(png|jpe?g|gif|webp)(\?.*)?$/,
         use: [
-          /* config.module.rule('images').use('url-loader') */
           {
             loader: 'url-loader',
             options: {
@@ -96,7 +95,6 @@
       {
         test: /\.(svg)(\?.*)?$/,
         use: [
-          /* config.module.rule('svg').use('file-loader') */
           {
             loader: 'file-loader',
             options: {
@@ -109,7 +107,6 @@
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
         use: [
-          /* config.module.rule('media').use('url-loader') */
           {
             loader: 'url-loader',
             options: {
@@ -128,7 +125,6 @@
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
         use: [
-          /* config.module.rule('fonts').use('url-loader') */
           {
             loader: 'url-loader',
             options: {
@@ -147,7 +143,6 @@
       {
         test: /\.pug$/,
         use: [
-          /* config.module.rule('pug').use('pug-plain-loader') */
           {
             loader: 'pug-plain-loader'
           }
@@ -161,7 +156,6 @@
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('css').oneOf('vue-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -169,7 +163,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('css').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -179,7 +172,6 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('css').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -192,7 +184,6 @@
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('css').oneOf('vue').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -200,7 +191,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('css').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -208,7 +198,6 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('css').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -221,7 +210,6 @@
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('css').oneOf('normal-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -229,7 +217,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('css').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -239,7 +226,6 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('css').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -251,7 +237,6 @@
           /* config.module.rule('css').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('css').oneOf('normal').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -259,7 +244,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('css').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -267,7 +251,6 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('css').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -286,7 +269,6 @@
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('postcss').oneOf('vue-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -294,7 +276,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('postcss').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -304,7 +285,6 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('postcss').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -317,7 +297,6 @@
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('postcss').oneOf('vue').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -325,7 +304,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('postcss').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -333,7 +311,6 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('postcss').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -346,7 +323,6 @@
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('postcss').oneOf('normal-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -354,7 +330,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('postcss').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -364,7 +339,6 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('postcss').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -376,7 +350,6 @@
           /* config.module.rule('postcss').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('postcss').oneOf('normal').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -384,7 +357,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('postcss').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -392,7 +364,6 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('postcss').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
@@ -411,7 +382,6 @@
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('scss').oneOf('vue-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -419,7 +389,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('scss').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -429,19 +398,17 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('scss').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('scss').oneOf('vue-modules').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  data: '$primary-color: #0C4CFF;\n$error-color: #F15533;\n$success-color: #35B34A;',
+                  data: '$js-primary: #0C4CFF;\n$js-error: #F15533;\n$js-success: #35B34A;',
                   sourceMapContents: true
                 }
               }
@@ -451,7 +418,6 @@
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('scss').oneOf('vue').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -459,7 +425,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('scss').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -467,19 +432,17 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('scss').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('scss').oneOf('vue').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  data: '$primary-color: #0C4CFF;\n$error-color: #F15533;\n$success-color: #35B34A;',
+                  data: '$js-primary: #0C4CFF;\n$js-error: #F15533;\n$js-success: #35B34A;',
                   sourceMapContents: true
                 }
               }
@@ -489,7 +452,6 @@
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('scss').oneOf('normal-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -497,7 +459,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('scss').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -507,19 +468,17 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('scss').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('scss').oneOf('normal-modules').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  data: '$primary-color: #0C4CFF;\n$error-color: #F15533;\n$success-color: #35B34A;',
+                  data: '$js-primary: #0C4CFF;\n$js-error: #F15533;\n$js-success: #35B34A;',
                   sourceMapContents: true
                 }
               }
@@ -528,7 +487,6 @@
           /* config.module.rule('scss').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('scss').oneOf('normal').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -536,7 +494,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('scss').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -544,19 +501,17 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('scss').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('scss').oneOf('normal').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  data: '$primary-color: #0C4CFF;\n$error-color: #F15533;\n$success-color: #35B34A;',
+                  data: '$js-primary: #0C4CFF;\n$js-error: #F15533;\n$js-success: #35B34A;',
                   sourceMapContents: true
                 }
               }
@@ -572,7 +527,6 @@
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('sass').oneOf('vue-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -580,7 +534,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('sass').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -590,19 +543,17 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('sass').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('sass').oneOf('vue-modules').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  data: '$primary-color: #0C4CFF;\n$error-color: #F15533;\n$success-color: #35B34A;',
+                  data: '$js-primary: #0C4CFF;\n$js-error: #F15533;\n$js-success: #35B34A;',
                   sourceMapContents: true,
                   indentedSyntax: true
                 }
@@ -613,7 +564,6 @@
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('sass').oneOf('vue').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -621,7 +571,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('sass').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -629,19 +578,17 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('sass').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('sass').oneOf('vue').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  data: '$primary-color: #0C4CFF;\n$error-color: #F15533;\n$success-color: #35B34A;',
+                  data: '$js-primary: #0C4CFF;\n$js-error: #F15533;\n$js-success: #35B34A;',
                   sourceMapContents: true,
                   indentedSyntax: true
                 }
@@ -652,7 +599,6 @@
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('sass').oneOf('normal-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -660,7 +606,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('sass').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -670,19 +615,17 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('sass').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('sass').oneOf('normal-modules').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  data: '$primary-color: #0C4CFF;\n$error-color: #F15533;\n$success-color: #35B34A;',
+                  data: '$js-primary: #0C4CFF;\n$js-error: #F15533;\n$js-success: #35B34A;',
                   sourceMapContents: true,
                   indentedSyntax: true
                 }
@@ -692,7 +635,6 @@
           /* config.module.rule('sass').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('sass').oneOf('normal').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -700,7 +642,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('sass').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -708,19 +649,17 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('sass').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('sass').oneOf('normal').use('sass-loader') */
               {
                 loader: 'sass-loader',
                 options: {
                   sourceMap: true,
-                  data: '$primary-color: #0C4CFF;\n$error-color: #F15533;\n$success-color: #35B34A;',
+                  data: '$js-primary: #0C4CFF;\n$js-error: #F15533;\n$js-success: #35B34A;',
                   sourceMapContents: true,
                   indentedSyntax: true
                 }
@@ -737,7 +676,6 @@
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('less').oneOf('vue-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -745,7 +683,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('less').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -755,14 +692,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('less').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('less').oneOf('vue-modules').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
@@ -775,7 +710,6 @@
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('less').oneOf('vue').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -783,7 +717,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('less').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -791,14 +724,12 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('less').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('less').oneOf('vue').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
@@ -811,7 +742,6 @@
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('less').oneOf('normal-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -819,7 +749,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('less').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -829,14 +758,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('less').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('less').oneOf('normal-modules').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
@@ -848,7 +775,6 @@
           /* config.module.rule('less').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('less').oneOf('normal').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -856,7 +782,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('less').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -864,14 +789,12 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('less').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('less').oneOf('normal').use('less-loader') */
               {
                 loader: 'less-loader',
                 options: {
@@ -890,7 +813,6 @@
           {
             resourceQuery: /module/,
             use: [
-              /* config.module.rule('stylus').oneOf('vue-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -898,7 +820,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -908,14 +829,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue-modules').use('stylus-loader') */
               {
                 loader: 'stylus-loader',
                 options: {
@@ -929,7 +848,6 @@
           {
             resourceQuery: /\?vue/,
             use: [
-              /* config.module.rule('stylus').oneOf('vue').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -937,7 +855,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -945,14 +862,12 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('vue').use('stylus-loader') */
               {
                 loader: 'stylus-loader',
                 options: {
@@ -966,7 +881,6 @@
           {
             test: /\.module\.\w+$/,
             use: [
-              /* config.module.rule('stylus').oneOf('normal-modules').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -974,7 +888,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal-modules').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -984,14 +897,12 @@
                   localIdentName: '[name]_[local]_[hash:base64:5]'
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal-modules').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal-modules').use('stylus-loader') */
               {
                 loader: 'stylus-loader',
                 options: {
@@ -1004,7 +915,6 @@
           /* config.module.rule('stylus').oneOf('normal') */
           {
             use: [
-              /* config.module.rule('stylus').oneOf('normal').use('vue-style-loader') */
               {
                 loader: 'vue-style-loader',
                 options: {
@@ -1012,7 +922,6 @@
                   shadowMode: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal').use('css-loader') */
               {
                 loader: 'css-loader',
                 options: {
@@ -1020,14 +929,12 @@
                   importLoaders: 2
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal').use('postcss-loader') */
               {
                 loader: 'postcss-loader',
                 options: {
                   sourceMap: false
                 }
               },
-              /* config.module.rule('stylus').oneOf('normal').use('stylus-loader') */
               {
                 loader: 'stylus-loader',
                 options: {
@@ -1046,15 +953,13 @@
           function () { /* omitted long function */ }
         ],
         use: [
-          /* config.module.rule('js').use('cache-loader') */
           {
             loader: 'cache-loader',
             options: {
-              cacheDirectory: 'd:\\home\\npmjs\\vueConfig\\node_modules\\.cache\\babel-loader',
-              cacheIdentifier: '78c400d2'
+              cacheDirectory: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules/.cache/babel-loader',
+              cacheIdentifier: '8ac5e21c'
             }
           },
-          /* config.module.rule('js').use('babel-loader') */
           {
             loader: 'babel-loader'
           }
@@ -1066,10 +971,9 @@
         test: /\.(vue|(j|t)sx?)$/,
         exclude: [
           /node_modules/,
-          'd:\\home\\npmjs\\vueConfig\\node_modules\\@vue\\cli-service\\lib'
+          '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules/_@vue_cli-service@3.5.3@@vue/cli-service/lib'
         ],
         use: [
-          /* config.module.rule('eslint').use('eslint-loader') */
           {
             loader: 'eslint-loader',
             options: {
@@ -1079,10 +983,10 @@
                 '.vue'
               ],
               cache: true,
-              cacheIdentifier: '24b4c1aa',
+              cacheIdentifier: '06707526',
               emitWarning: true,
               emitError: false,
-              eslintPath: 'd:\\home\\npmjs\\vueConfig\\node_modules\\eslint\\lib\\api.js',
+              eslintPath: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/node_modules/_eslint@5.16.0@eslint/lib/api.js',
               formatter: function () { /* omitted long function */ }
             }
           }
@@ -1123,7 +1027,7 @@
     new HtmlWebpackPlugin(
       {
         templateParameters: function () { /* omitted long function */ },
-        template: 'd:\\home\\npmjs\\vueConfig\\public\\index.html'
+        template: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/public/index.html'
       }
     ),
     /* config.plugin('pwa') */
@@ -1154,15 +1058,18 @@
     new CopyWebpackPlugin(
       [
         {
-          from: 'd:\\home\\npmjs\\vueConfig\\public',
-          to: 'd:\\home\\npmjs\\vueConfig\\dist',
+          from: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/public',
+          to: '/Users/xiehc/WorkingDirectory/html5/npmjs/vueConfig/dist',
           toType: 'dir',
           ignore: [
             '.DS_Store'
           ]
         }
       ]
-    )
+    ),
+    {
+      apply: function () { /* omitted long function */ }
+    }
   ],
   entry: {
     app: [

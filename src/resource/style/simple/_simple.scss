@@ -5,6 +5,11 @@
     .autoW{width:auto;}
     .autoH{height:auto;}
     .h96{height:0.96rem;line-height: 0.96rem;}
+    // 最大宽度750
+    .w750 {
+        max-width: 750px;
+        margin: 0 auto;
+    }
 
     /**************************** 行高 ****************************/
     .lh1{line-height:1;}

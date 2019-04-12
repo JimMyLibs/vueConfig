@@ -3,9 +3,19 @@ const path = require('path');
 const glob = require('glob');
 const styleVar = require('./src/resource/style/base/var');
 const PurifyCSSPlugin = require("purifycss-webpack");
+// 生成目录
+function resolve(dir) {
+    return path.join(__dirname, '.', dir)
+  }
 
 module.exports = {
     configureWebpack: {
+        resolve: {
+            alias: {
+                comm: resolve(`/src/resource`),
+                config: resolve(`/src/config`),
+            }
+        },
         plugins: [
             // 删除CSS冗余
             new PurifyCSSPlugin({
