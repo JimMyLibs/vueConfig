@@ -6,9 +6,9 @@ const projectInfoSessionId = '__projectInfoSessionId__'
 const referrerProjectSessionId = '__referrerProjectSessionId__'
 
 
-// 打包配置信息
-const ISDEV = process.env.ISDEV
-const PROJECT_INFO = process.env.PROJECT_INFO
+// 打包配置信息 // jim@20190412:  临时
+const ISDEV = process.env.ISDEV || process.env.NODE_ENV == 'development'
+const PROJECT_INFO = process.env.PROJECT_INFO || { projectId:'' }
 
 
 function getEnvInfo(){
