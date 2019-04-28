@@ -8,7 +8,6 @@ import createApp from '@/resource/vues/createApp'
 
 console.log('环境变量', process.env)
 
-
 createApp({
     App,
     conf,
