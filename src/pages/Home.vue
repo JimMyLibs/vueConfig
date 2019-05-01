@@ -1,17 +1,21 @@
 <template>
-  <div class="home">
-    <HelloWorld msg="HelloWorld"/>
-  </div>
+    <div class="home">
+        <div id="nav">
+            <router-link to="/">Home</router-link>|
+            <router-link to="/about">About</router-link>
+        </div>
+        <HelloWorld msg="HelloWorld"/>
+    </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue";
 
 export default {
-  name: 'home',
-  components: {
-    HelloWorld
-  }
-}
+    name: "home",
+    components: {
+        HelloWorld
+    }
+};
 </script>

@@ -10,7 +10,7 @@ import UtmCollect from 'comm/utils/core/UtmCollect' // 埋点
 
 // 初始化页面
 import '../utils/initPage'
-
+// 全局样式默认入口
 import '../style/index.scss'
 
 export default ({
