@@ -1,0 +1,11 @@
+{
+    "product": "https://test-civet-api.niiwoo.com/civet/",
+    "activity": "https://test-activity-api.niiwoo.com/activity/",
+    "shendun": "https://test.niiwoo.com:5022/",
+    "mvcApi": "https://test.niiwoo.com:5021/",
+    "collect": "https://test.niiwoo.com:17037/analysis/collect/apptrace",
+    "env": "test",
+    "version": "v1",
+    "filename": "apiSource.v1.json",
+    "description": "本文件作为apiSource.v1.json的备份文件，若不存在apiSource.v1.json文件，请参考本文件创建。"
+}
