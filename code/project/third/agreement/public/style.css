@@ -1,0 +1,23 @@
+.public-page {
+  min-height: 100vh;
+  background: #f4f4f4;
+  box-sizing: border-box;
+  padding-bottom: 1rem;
+  font-size: .28rem;
+}
+
+.page-no-padding {
+  padding-bottom: 0;
+}
+
+.form-page {
+  min-height: 100vh;
+  background: #fff;
+  font-size: .28rem;
+  color: #898989;
+}
+
+.nav-line{
+  height:2px;
+  background: #f4f4f4;
+}

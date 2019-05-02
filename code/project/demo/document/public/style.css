@@ -1,0 +1,25 @@
+body {
+  font-size: .26rem;
+  color: #336699;
+  background: #f2f4f6;
+  cursor: pointer;
+}
+
+.center_fixed {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -60%);
+  max-width: 7.5rem;
+}
+
+.limit_width {
+  margin: 0 auto;
+  width: 7.5rem;
+}
+
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

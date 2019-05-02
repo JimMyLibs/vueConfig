@@ -1,0 +1,112 @@
+/*********************************** 公共样式 ***********************************/
+html,body{    
+    font-size: .14rem;
+    line-height: 1.5;
+    color:#333;
+    background:#f4f4f4;
+}
+select{
+    -webkit-appearance: none;
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+    width:100%;
+    height:0.85rem;
+    line-height: 0.85rem;
+    font-size: inherit;
+    position: relative;
+    z-index: 1;
+    padding-right: 0.2rem;
+    direction: rtl;
+}
+.angleBracket {
+    position:relative;
+    &::before {
+        content: "";
+        position: absolute;
+        top:50%;
+        margin-top:-0.1rem;
+        right:0;
+        width:0.2rem;
+        height:0.2rem;
+        border-top:1px solid #fff;
+        border-right:1px solid #fff;
+        transform: rotate(45deg);
+        z-index: 10;
+    }  
+}
+.halfBorder{
+    position: relative;
+    &:not(:last-child){
+        &::before{
+            content:'';
+            position:absolute;
+            display: block;
+            bottom:0;
+            left:0;
+            right:0;
+            height:1px;
+            transform: scaleY(0.5);
+            background:#dedede;
+            z-index: 10;
+        }
+    }
+}
+.btn{
+    display: inline-block;
+    width: 5.63rem;
+    height: 0.83rem;
+    background-color: #29a1f7;
+    border-radius: 0.1rem;  
+    color:#fff;   
+    font-size: 0.36rem;       
+    line-height: 0.83rem;
+    text-align: center;
+    border:0;
+    &:disabled{
+        background-color: rgba(41,161,247, 0.3);
+    }
+}
+.topBar{    
+    height: 0.74rem;
+    line-height: 0.74rem;
+    background: #fff;
+    font-size: 0.36rem;
+    padding:0 0.2rem;
+    box-sizing: border-box;
+}
+
+/* **************************************** vue动画 **************************************** */ 
+// 参考：https://cn.vuejs.org/v2/api/#transition
+// 参考：https://cn.vuejs.org/v2/guide/transitions.html
+// 渐显渐隐：<transition name="fade">
+.fade-enter-active,.fade-leave-active {
+    transition: all .3s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+// 向右滑动+渐显渐隐：<transition name="slide">
+.slideRight-enter-active,.slideRight-leave-active {
+    transition: all .3s ease;
+}
+.slideRight-enter, .slideRight-leave-to {
+    transform: translateX(100%);
+    opacity: 0;
+}
+// 向左滑动+渐显渐隐：<transition name="slide">
+.slideRight-enter-active,.slideRight-leave-active {
+    transition: all .3s ease;
+}
+.slideRight-enter, .slideRight-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+// 向上滑动+渐显渐隐：<transition name="slideUp">
+.slideUp-enter-active,.slideUp-leave-active {
+    transition: transform 0.3s;
+}
+.slideUp-enter, .slideUp-leave-to {
+    transform: translateY(100%);
+    opacity: 0;
+}
