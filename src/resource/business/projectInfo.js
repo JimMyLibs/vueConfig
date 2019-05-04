@@ -1,3 +1,4 @@
+import conf from '../../config/conf' // 项目配置信息
 
 // 项目信息session标识
 const projectInfoSessionId = '__projectInfoSessionId__'
@@ -7,13 +8,14 @@ const referrerProjectSessionId = '__referrerProjectSessionId__'
 
 
 // 打包配置信息 // jim@20190412:  临时
-const ISDEV = process.env.ISDEV || process.env.NODE_ENV == 'development'
-const PROJECT_INFO = process.env.PROJECT_INFO || { projectId: '' }
+const ISDEV = process.env.NODE_ENV == 'development'
+const PROJECT_INFO = conf
 
-
+// 获取环境变量信息
 function getEnvInfo() {
-    const { projectId = '' } = PROJECT_INFO
-    let projectType = projectId.split('_')[0]
+    console.log('PROJECT_INFO',PROJECT_INFO)
+    const { projectTag = '' } = PROJECT_INFO
+    let projectType = projectTag.split('_')[0]
     return {
         ISDEV,
         projectType,
