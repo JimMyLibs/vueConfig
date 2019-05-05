@@ -13,7 +13,6 @@ const PROJECT_INFO = conf
 
 // 获取环境变量信息
 function getEnvInfo() {
-    console.log('PROJECT_INFO',PROJECT_INFO)
     const { projectTag = '' } = PROJECT_INFO
     let projectType = projectTag.split('_')[0]
     return {
@@ -40,17 +39,15 @@ export function getProjectInfo() {
  */
 export function setProjectInfo(info = {}) {
     let envInfo = getEnvInfo()
-    let {
-        projectType,
-    } = envInfo
+    let { projectType } = envInfo
     let projectInfo = {
         ...envInfo,
         ...info
     }
 
     let sessionInfo = getProjectInfo()
-    let { projectType: sessionType } = sessionInfo
-    if (typeof sessionType !== 'undefined' && sessionType !== projectType) {
+    let { projectType: sessionType } = sessionInfo;// let sessionType = sessionInfo.projectType
+    if (typeof sessionType !== 'undefined' && sessionType !== projectType) {// 判断是否是另一个项目
         setReferrerProject(sessionInfo)
     }
 
