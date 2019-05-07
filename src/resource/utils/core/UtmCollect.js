@@ -47,13 +47,13 @@ const appKeys = {
 export default class UtmCollect {
   /**
    * [constructor 初始化实例]
-   * @param {String} [projectId='']     [项目名称标识，用于区分不同项目，如H5：投资全流程]
+   * @param {String} [projectTag='']     [项目名称标识，用于区分不同项目，如H5：投资全流程]
    * @param {String} [app_version] [项目版本号，如：5.4.0]
    * @param {String} [isAutoCollect = true] [是否启用页面元素添加event_id的data项来埋点]
    * @param {String} [keyType='niiwoo'] [项目key类型，对应appKeys中项，方便后续扩展]
    */
-  constructor(projectId = '', app_version = '', isAutoCollect = true, keyType = projectType) {
-    this.projectId = projectId
+  constructor(projectTag = '', app_version = '', isAutoCollect = true, keyType = projectType) {
+    this.projectTag = projectTag
     this.appVersion = app_version
     this.isAutoCollect = isAutoCollect
     this.keyType = keyType
@@ -67,11 +67,11 @@ export default class UtmCollect {
 
   // 存储项目信息（sessionStorage）
   saveProjectInfo() {
-    let {projectId, appVersion} = this
-    if (!projectId) {
-      throw new Error('projectId 不能为空！')
+    let {projectTag, appVersion} = this
+    if (!projectTag) {
+      throw new Error('projectTag 不能为空！')
     }
-    sessionStorage.setItem(projectInfoSessionId, JSON.stringify({projectId, version: appVersion}))
+    sessionStorage.setItem(projectInfoSessionId, JSON.stringify({projectTag, version: appVersion}))
   }
 
   /**
@@ -91,12 +91,12 @@ export default class UtmCollect {
     }
     attributes = this.getAndCheckAttr(attributes)
     let session_id = this.userSession()
-    let {projectId, appVersion, queryInfo} = this
+    let {projectTag, appVersion, queryInfo} = this
     let {os, version: os_version} = getOs()
     let {browser, version: browser_version} = getBrowserInfo()
     let {ref, referer_domain} = this.getRefererInfo()
-    if(!(event_id.startsWith(projectId))){
-      event_id = `${projectId}-${event_id}`
+    if(!(event_id.startsWith(projectTag))){
+      event_id = `${projectTag}-${event_id}`
     }
     return this.send({
       type: 'trace',
@@ -105,7 +105,7 @@ export default class UtmCollect {
       session_id,
       app_version: appVersion,
       channel: 'H5',
-      project_id: projectId,
+      project_id: projectTag,
       os,
       os_version,
       browser_brand: browser,
@@ -150,9 +150,9 @@ export default class UtmCollect {
    * @return {Promise}                   [请求promise]
    */
   page(event_id, attributes = [], url = location.href) {
-    let {projectId} = this
-    if(!(event_id.startsWith(projectId))){
-      event_id = `${projectId}-${event_id}`
+    let {projectTag} = this
+    if(!(event_id.startsWith(projectTag))){
+      event_id = `${projectTag}-${event_id}`
     }
     this.trace(event_id, attributes, '1', url)
   }

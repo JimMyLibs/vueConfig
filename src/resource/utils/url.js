@@ -54,7 +54,7 @@ export function getLocalhost() {
 // input：
 /*
 {
-  url:  'https://test.niiwoo.com:5006/h5/index.html?name=lixiong#/index'
+  url:  'https://test.niiwoo.com:5006/h5/index.html?name=jim#/index'
   hash: '/question'
   params: {
     sex: '1'
@@ -62,7 +62,7 @@ export function getLocalhost() {
 }
  */
 // output:
-// 'https://test.niiwoo.com:5006/h5/index.html?name=lixiong&sex=1#/question'
+// 'https://test.niiwoo.com:5006/h5/index.html?name=jim&sex=1#/question'
 
 // 添加某个url的参数或者替换hash值，得到新的url
 export function getChangeUrl(options) {
@@ -123,14 +123,14 @@ export function getRealLink(path = location.href) {
 }
 
 // 输出格式化url
-// input：'https://test.niiwoo.com:5006/h5/index.html?name=lixiong#/index'
+// input：'https://test.niiwoo.com:5006/h5/index.html?name=jim#/index'
 // output:
 /*
 {
     "protocol": "https:",
     "host": "test.niiwoo.com:5006",
     "pathname": "/h5/index.html",
-    "search": "?name=lixiong",
+    "search": "?name=jim",
     "hash": "#/index"
 }
  */

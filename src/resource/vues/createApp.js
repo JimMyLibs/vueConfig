@@ -32,7 +32,7 @@ export default ({
     const {
         isUtm,
         projectType,
-        projectName,
+        projectTag,
         version,
         isAutoCollect = true
     } = getProjectInfo()
@@ -40,7 +40,7 @@ export default ({
     let utm = null
     if (isUtm) {
         utm = new UtmCollect(
-            projectName, // 项目名称
+            projectTag, // 项目名称
             version, // 项目版本号
             isAutoCollect, // 是否启用eventid埋点
             projectType // utm or sweet
