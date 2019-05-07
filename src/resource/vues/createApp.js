@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import mixinRouter from 'comm/vues/mixinRouter' // 路由
+import mixinRouter from 'comm/vues/mixinRouter' // 路由: 管理登录态及页面埋点
 import mixinStore from 'comm/vues/mixinStore' // 状态
 import mixinFilters from 'comm/vues/mixinFilters' // 过滤器
 import mixinMethods from 'comm/vues/mixinMethods' // 混入方法

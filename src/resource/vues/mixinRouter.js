@@ -9,9 +9,7 @@ export default (routes, conf, utm) => {
     let { loginUrl } = conf
     routes.beforeEach((to, from, next) => {
         let { meta } = to
-        meta = typeof meta === 'object'
-            ? meta
-            : {}
+        meta = typeof meta === 'object' ? meta : {};
         let { isLogin } = meta
 
         // 检测登录，未登录则先登录再跳转
