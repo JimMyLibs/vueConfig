@@ -53,6 +53,19 @@ export default class Pages_loadMore extends Vue {
                     }
                 }
             }
+            
+            // 判断滚动距离==高度差来：来自吴凯
+            // let tabbHeight = this.$refs.tabb.offsetHeight; // 外层盒子高度
+            // let tabb1Height = this.$refs.tabb1.offsetHeight; // 滚动盒子高度
+            // let scrollOutHeight = tabbHeight - tabb1Height; // 外层盒子与滚动盒子高度差
+            // if (this.loadLock) {
+            //     // 数据加载状态
+            //     if (this.$refs.tabb1.scrollTop == scrollOutHeight) {
+            //         // 判断是否滚动到底
+            //         this.loadPage++;
+            //         this.getMore();
+            //     }
+            // }
         })
     }
 }
