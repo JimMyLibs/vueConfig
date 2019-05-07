@@ -1,7 +1,7 @@
 export default {
 
   // 项目类型标识，默认为项目父级目录名，如 app, sweet
-  // projectType: 'niiwoo',  // activity, app, document, manage, sweet
+  // projectType: 'curProject',  // activity, app, document, manage, sweet
 
   // 项目名称，语法【项目类型_项目名称】，英文
   projectName: 'normal_invest',

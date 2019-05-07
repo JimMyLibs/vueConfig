@@ -1,14 +1,14 @@
 /**
- * 获取当前环境信息，如操作系统，浏览器，你我金融app等信息
+ * 获取当前环境信息，如操作系统，浏览器，当前项目app等信息
  */
 
 const ua = navigator.userAgent.toLowerCase()
 
 
 
-// 判断是否在你我金融app中
+// 判断是否在当前项目app中
 export function isApp() {
-  return ua.includes('niiwoo') || ua.includes('sweet')
+  return ua.includes('curProject') || ua.includes('sweet')
 }
 
 // 判断是否在微信中
@@ -27,9 +27,9 @@ export function isIOS() {
   return iosReg.test(ua)
 }
 
-// 获取你我金融app版本号
+// 获取当前项目app版本号
 export function getAppVersion() {
-  const matchArr = ua.match(/niiwoo\/([\d.]+)/)
+  const matchArr = ua.match(/curProject\/([\d.]+)/)
   return matchArr
     ? matchArr[1]
     : ''
@@ -130,9 +130,9 @@ export function getBrowserInfo() {
   if (m) {
     browser = m[1]
     version = m[2]
-  } else if (ua.match(/niiwoo/)) {
-    // niiwoo
-    let nm = ua.match(/(niiwoo).*?([\d.]+)/)
+  } else if (ua.match(/curProject/)) {
+    // curProject
+    let nm = ua.match(/(curProject).*?([\d.]+)/)
     if (nm) {
       browser = nm[1]
       version = nm[2]

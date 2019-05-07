@@ -117,7 +117,7 @@ export default (methods = {}) => {
                             reject(res)
                         }
                     }).catch(reson => {
-                        if (typeof reson === 'string' && !(reson.includes('not in niiwoo'))) {
+                        if (typeof reson === 'string' && !(reson.includes('not in curProject'))) {
                             this.$tip(reson)
                         }
                         reject(reson)

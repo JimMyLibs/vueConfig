@@ -1,5 +1,5 @@
 /**
- * H5与你我金融APP交互基类，实际使用可根据实际情况扩展
+ * H5与当前项目APP交互基类，实际使用可根据实际情况扩展
  */
 
 import {
@@ -45,7 +45,7 @@ export default class NativeBridge {
           resolve()
         }
       } else {
-        reject('not in niiwoo ios')
+        reject('not in curProject ios')
       }
     })
 
@@ -108,7 +108,7 @@ export default class NativeBridge {
         })
       })
     } else {
-      p('not in niiwoo')
+      p('not in curProject')
     }
   }
 

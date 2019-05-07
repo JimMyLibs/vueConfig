@@ -31,7 +31,7 @@ const inputEleArr = ['input', 'textarea', 'select', 'button']
 
 // 项目appkey
 const appKeys = {
-  niiwoo: { // 你我金融不同环境对应appkey
+  curProject: { // 当前项目不同环境对应appkey
     dev: 'dd147d7eccbb4623e4f0e13174062f92',
     test: 'dd147d7eccbb4623e4f0e13174062f92',
     prod: '64a74538133a79f9e83d38660fabc7ae'
@@ -50,7 +50,7 @@ export default class UtmCollect {
    * @param {String} [projectTag='']     [项目名称标识，用于区分不同项目，如H5：投资全流程]
    * @param {String} [app_version] [项目版本号，如：5.4.0]
    * @param {String} [isAutoCollect = true] [是否启用页面元素添加event_id的data项来埋点]
-   * @param {String} [keyType='niiwoo'] [项目key类型，对应appKeys中项，方便后续扩展]
+   * @param {String} [keyType='curProject'] [项目key类型，对应appKeys中项，方便后续扩展]
    */
   constructor(projectTag = '', app_version = '', isAutoCollect = true, keyType = projectType) {
     this.projectTag = projectTag
@@ -251,7 +251,7 @@ export default class UtmCollect {
     return fetchApiInfo().then(res => {
       let {env} = res
       let {keyType} = this
-      let keyObj = appKeys[keyType] || appKeys['niiwoo']
+      let keyObj = appKeys[keyType] || appKeys['curProject']
       let key = keyObj[env] || keyObj['prod']
       let baseData = this.getBaseData()
       let sendData = { // 整合基础数据
@@ -317,7 +317,7 @@ export default class UtmCollect {
           ele.setAttribute('readonly', '')
           document.body.appendChild(ele)
         }
-        ele.value = `niiwoo://${msg}`
+        ele.value = `curProject://${msg}`
         this.isSetClipboard = true
         try {
           ele.select()

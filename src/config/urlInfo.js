@@ -16,7 +16,7 @@ export const publicUrls = {
   apiHost: `${origin}/h5/h5-base/json/apiSource.v1.json`,
 
   // 微信授权页面地址
-  about: `${origin}/h5/app/agreements/niiwoo.html`,
+  about: `${origin}/h5/app/agreements/curProject.html`,
 
   // 项目公共登录页面
   login: `${origin}/html5/public_login/#/login`,

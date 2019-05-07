@@ -23,7 +23,7 @@ export var collectBehavior = (function() {
   // 接口请求方式
   var methodName = 'post'
 
-  // 你我金融appkey
+  // 当前项目appkey
   var nwAppKey = '12345678910'
 
   // 优借appkey
@@ -278,9 +278,9 @@ export var collectBehavior = (function() {
     if (m) {
       browser = m[1]
       version = m[2]
-    } else if (ua.match(/niiwoo/)) {
-      // niiwoo
-      var nm = ua.match(/(niiwoo).*?([\d.]+)/)
+    } else if (ua.match(/curProject/)) {
+      // curProject
+      var nm = ua.match(/(curProject).*?([\d.]+)/)
       if (nm) {
         browser = nm[1]
         version = nm[2]

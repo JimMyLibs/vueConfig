@@ -96,7 +96,7 @@ export function getWechatAuthInfo(code = getQueryString('code'), appId) {
 
 
 // 获取授权地址，授权后url地址会携带code参数
-export function getAuthUrl(appid, url = location.href, state = 'niiwoo'){
+export function getAuthUrl(appid, url = location.href, state = 'curProject'){
   let params = [
     `appid=${appid}`,
     `redirect_uri=${encodeURIComponent(url)}`,

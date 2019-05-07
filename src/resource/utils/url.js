@@ -43,8 +43,8 @@ export function jsonToParams(obj) {
 
 // 获取当前主机地址
 // 假设当前地址为：
-// https://test.niiwoo.com:5006/h5/activity/inviting2/index.html#/activityRegister
-// output:  https://test.niiwoo.com:5006
+// https://test.curProject.com:5006/h5/activity/inviting2/index.html#/activityRegister
+// output:  https://test.curProject.com:5006
 export function getLocalhost() {
   let {protocol, host} = urlFormat()
   return `${protocol}//${host}`
@@ -54,7 +54,7 @@ export function getLocalhost() {
 // input：
 /*
 {
-  url:  'https://test.niiwoo.com:5006/h5/index.html?name=jim#/index'
+  url:  'https://test.curProject.com:5006/h5/index.html?name=jim#/index'
   hash: '/question'
   params: {
     sex: '1'
@@ -62,7 +62,7 @@ export function getLocalhost() {
 }
  */
 // output:
-// 'https://test.niiwoo.com:5006/h5/index.html?name=jim&sex=1#/question'
+// 'https://test.curProject.com:5006/h5/index.html?name=jim&sex=1#/question'
 
 // 添加某个url的参数或者替换hash值，得到新的url
 export function getChangeUrl(options) {
@@ -96,8 +96,8 @@ export function getUrlDir(dirname = PROJECT_DIR_NAME.split('/')[1], url=location
 
 
 // 获取当前href到目录部分字符串
-// https://test.niiwoo.com:5006/h5/demo/index.html#/index
-// https://test.niiwoo.com:5006/h5/demo/
+// https://test.curProject.com:5006/h5/demo/index.html#/index
+// https://test.curProject.com:5006/h5/demo/
 export function getHostDir() {
   let {protocol, host, pathname} = urlFormat()
   pathname = pathname.match(/\/[\w/]*\//)
@@ -123,12 +123,12 @@ export function getRealLink(path = location.href) {
 }
 
 // 输出格式化url
-// input：'https://test.niiwoo.com:5006/h5/index.html?name=jim#/index'
+// input：'https://test.curProject.com:5006/h5/index.html?name=jim#/index'
 // output:
 /*
 {
     "protocol": "https:",
-    "host": "test.niiwoo.com:5006",
+    "host": "test.curProject.com:5006",
     "pathname": "/h5/index.html",
     "search": "?name=jim",
     "hash": "#/index"
