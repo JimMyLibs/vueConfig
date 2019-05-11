@@ -5,6 +5,11 @@
 a {
     @include colorFixed(text-decoration,none)
 }
+
+/**************************** repeat ****************************/ 
+@include color3((21,42,75,ab,f9));
+@include color3((0,1,2,3,4,5,6,7,8,9,a,b,c,d,e,f));
+
 /**************************** 文本颜色 ****************************/ 
 .f_l{ @include colorFixed(color,$l) }
 .f_m{ @include colorFixed(color,$m) }
@@ -34,40 +39,8 @@ a {
 /**************************** orange：橘 ****************************/ 
 .f_orange { @include colorFixed(color,$orange) }
 
-
 /**************************** yellow：黄 ****************************/ 
 .f_yellow { @include colorFixed(color,$yellow) }
-
-/**************************** repeat ****************************/ 
-.f_aaa { @include colorFixed(color,$aaa) }
-.f_bbb { @include colorFixed(color,$bbb) }
-.f_ccc { @include colorFixed(color,$ccc) }
-.f_ddd { @include colorFixed(color,$ddd) }
-.f_eee { @include colorFixed(color,$eee) }
-.f_fff { @include colorFixed(color,$fff) }
-.f_000 { @include colorFixed(color,$c000) }
-.f_111 { @include colorFixed(color,$c111) }
-.f_222 { @include colorFixed(color,$c222) }
-.f_333 { @include colorFixed(color,$c333) }
-.f_444 { @include colorFixed(color,$c444) }
-.f_555 { @include colorFixed(color,$c555) }
-.f_666 { @include colorFixed(color,$c666) }
-.f_777 { @include colorFixed(color,$c777) }
-.f_888 { @include colorFixed(color,$c888) }
-.f_999 { @include colorFixed(color,$c999) }
-/**************************** simple ****************************/ 
-.f_40 { @include colorFixed(color,$c40) }
-.f_75 { @include colorFixed(color,$c75) }
-
-
-.placeholder{
-	&::-webkit-input-placeholder{
-		color:  $ccc;
-	}
-}
-::-webkit-input-placeholder{
-	color:  $ccc;
-}
 
 /*背景颜色*/
 .bg_white,.bg_fff {background-color:$white;}
@@ -92,9 +65,12 @@ a {
 /* 边框相关 */
 .dashed_blue_res{@include borderRes(#999,#DCDCDC,#70D2F5,#01B7F2,#DCDCDC,1px,dashed) }
 
-/* 提示问题 */
+/**************************** placeholder ****************************/ 
 .placeholder{
 	&::-webkit-input-placeholder{
-		color:  #999;
+		color:  $ccc;
 	}
+}
+::-webkit-input-placeholder{
+	color:  $ccc;
 }

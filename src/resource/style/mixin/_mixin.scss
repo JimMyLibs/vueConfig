@@ -45,6 +45,16 @@
 		.radius#{$i} {border-radius: $num+$unit;}		
 	}
 }
+
+/**************************** color ****************************/
+@mixin color3($list,$char:'#'){
+    $num:0;
+	@each $item in $list {
+		.f_#{$item} {color: #{$char}#{$item}#{$item}#{$item};}
+		.bg_#{$item} {color: #{$char}#{$item}#{$item}#{$item};}		
+	}
+}
+
 /************************************** mixin **************************************/
 /* 浏览器兼容-属性名 | Koala或gulp用autoprefixer自动编译 */
 @mixin css3($property, $value) {

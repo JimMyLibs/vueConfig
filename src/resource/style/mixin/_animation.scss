@@ -60,21 +60,45 @@
 
 
 /* **************************************** vue动画 **************************************** */ 
-/* 参考：https://cn.vuejs.org/v2/api/#transition */
-/* 参考：https://cn.vuejs.org/v2/guide/transitions.html */
-/* 左右滑动+渐显渐隐：<transition name="slide-fade"> */
-.slide-fade-enter-active,.slide-fade-leave-active {
-    transition: all .3s ease;
-}
-.slide-fade-enter, .slide-fade-leave-to {
-    transform: translateX(100%);
-    opacity: 0;
-}
-/* 渐显渐隐：<transition name="fade"> */
+// 参考：https://cn.vuejs.org/v2/api/#transition
+// 参考：https://cn.vuejs.org/v2/guide/transitions.html
+// 渐显渐隐：<transition name="fade">
 .fade-enter-active,.fade-leave-active {
     transition: all .3s ease;
 }
 .fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+// 向右滑动+渐显渐隐：<transition name="slide">
+// 向上滑动+渐显渐隐：<transition name="slideUp">
+.slideUp-enter-active,.slideUp-leave-active {
+    transition: transform 0.3s;
+}
+.slideUp-enter, .slideUp-leave-to {
+    transform: translateY(100%);
+    opacity: 0;
+}
+// 向上滑动+渐显渐隐：<transition name="slideUp">
+.slideDown-enter-active,.slideDown-leave-active {
+    transition: transform 0.3s;
+}
+.slideDown-enter, .slideDown-leave-to {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+// 向左滑动+渐显渐隐：<transition name="slide">
+.slideLeft-enter-active,.slideLeft-leave-active {
+    transition: all .3s ease;
+}
+.slideLeft-enter, .slideLeft-leave-to {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+.slideRight-enter-active,.slideRight-leave-active {
+    transition: all .3s ease;
+}
+.slideRight-enter, .slideRight-leave-to {
+    transform: translateX(100%);
     opacity: 0;
 }
 
