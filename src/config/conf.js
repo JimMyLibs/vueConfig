@@ -4,10 +4,10 @@ export default {
   // projectType: 'curProject',  // activity, app, document, manage, sweet
 
   // 项目名称，语法【项目类型_项目名称】，英文
-  projectName: 'normal_invest',
+  projectName: 'normal_name',
   
   // 项目标识，即为埋点/异常监控/的项目id
-  projectTag: '投资全流程',
+  projectTag: '项目标识',
 
   // 是否需要埋点
   isUtm: true,
