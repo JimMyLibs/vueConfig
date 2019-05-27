@@ -3,13 +3,15 @@ const webpack = require('webpack')
 const path = require('path');
 const glob = require('glob-all');
 const PurifyCSSPlugin = require("purifycss-webpack");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('webpack-copy-plugin')
 const { projectPath, distPath, dll } = require('../src/config/project');
 
 const dll_manifest = require(`${dll.dist}/vues_manifest.${dll.version}.json`);
 
 // 生成目录
 function resolve(dir) {
-    return path.join(__dirname, '.', dir)
+    return path.join(__dirname, '..', dir)
 }
 
 module.exports = (config) => {
@@ -18,32 +20,31 @@ module.exports = (config) => {
     //     args[0][0].to = `${distPath}`;
     //     return args;
     // });
-    config.plugin('html').tap(args=>{
-        console.log('args',args)
-        args[0].template = `${projectPath}/public/index.html`;
-    });
+    // config.plugin('html').tap(args=>{
+    //     args[0].template = `${projectPath}/public/index.html`;
+    // });
+    config.entry.app = [`${projectPath}/main.js`];
     return {
-        publicPath: process.env.NODE_ENV === 'production' ? '/' : '/',// baseUrl,生产环境可配置子目录
-        outputDir: resolve('./dist'),
-        assetsDir: '',// 静态资源目录
-        entryDir: {// 待测
-            app: [
-                `${projectPath}/main.js`,
-            ]
-        },
-        // pages: {// 单页面||多页面
-        //     index: {
-        //         entry: `${projectPath}/main.js`,
-        //         template: `${projectPath}/public/index.html`,
-        //     },
-        // },
+        // public: process.env.NODE_ENV === 'production' ? '/' : '/',// baseUrl,生产环境可配置子目录
+        // outputDir: `${distPath}`,
+        // assetsDir: '',// 静态资源目录
         resolve: {
             alias: {
-                comm: resolve('/src/comm'),
-                config: resolve('/src/config'),
+                comm: resolve('./src/comm'),
+                config: resolve('./src/config'),
             }
         },
         plugins: [
+            new HtmlWebpackPlugin({
+                template: `${projectPath}/public/index.html`
+            }),
+            new CopyWebpackPlugin({
+                dirs: [{
+                    from: `${projectPath}/public`,
+                    to: `${distPath}`,
+                    toType: 'dir'
+                }]
+            }),
             // 删除CSS冗余
             new PurifyCSSPlugin({
                 paths: glob.sync([
@@ -55,7 +56,7 @@ module.exports = (config) => {
                 ]),
             }),
             new webpack.DllReferencePlugin({
-              manifest: dll_manifest
+                manifest: dll_manifest
             }),
         ]
     }

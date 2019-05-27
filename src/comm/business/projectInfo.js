@@ -1,4 +1,4 @@
-import conf from '../../config/project' // 项目配置信息
+const conf = require('config/project'); // 项目配置信息
 
 // 项目信息session标识
 const projectInfoSessionId = '__projectInfoSessionId__'

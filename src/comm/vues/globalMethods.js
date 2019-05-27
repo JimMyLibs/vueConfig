@@ -6,7 +6,7 @@ import { getProjectInfo } from 'comm/business/projectInfo'
 import { checkResponse } from 'comm/business/commApi'
 import { user, login, setTitle } from 'comm/business/user'
 import { p } from 'comm/js/utils/utils'
-import { appName } from 'config/project'
+const { appName } = require('config/project');
 
 const http = new Http()
 const native = new Native()

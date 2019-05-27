@@ -13,7 +13,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-    chainWebpack: config => {
+    configureWebpack: config => {
         if (process.env.NODE_ENV === 'production') {
             return {
                 ...bin.base(config),

@@ -46,7 +46,7 @@ module.exports = {
     /* 不填 */
     projectTag: `${base.projectType}_${base.projectName}`,// 项目标识（如：h5_demo）
     projectPath: resolve(`project/${projectDir}`),// 项目源码根目录绝对路径:[项目类型/项目名称]
-    distPath: resolve(`dist/${projectDir}`),// 项目输出目录绝对路径
+    distPath: resolve(`../dist/${projectDir}`),// 项目输出目录绝对路径
     comm: resolve(`comm`),// 公共目录
     config: resolve(`config`),// 配置文件目录
 

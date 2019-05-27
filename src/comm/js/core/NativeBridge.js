@@ -4,7 +4,7 @@
 
 import { isApp, isAndroid, isIOS, getAppVersion } from 'comm/js/env/env'
 import { createRandomId, p } from 'comm/js/utils/utils'
-import { appName } from 'config/project'
+const { appName } = require('config/project');
 
 // 请求基类，可根据实际需要进行扩展
 export default class NativeBridge {

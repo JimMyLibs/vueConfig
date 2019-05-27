@@ -1,4 +1,4 @@
-import { appName } from 'config/project'
+const { appName } = require('config/project');
 
 /**
  * 获取当前环境信息，如操作系统，浏览器，当前项目app等信息

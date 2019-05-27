@@ -1,4 +1,4 @@
-import project from 'config/project'
+const project = require('config/project');
 
 export default {
     

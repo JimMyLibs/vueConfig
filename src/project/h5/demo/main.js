@@ -9,7 +9,7 @@ import './worker/registerServiceWorker'
 
 import createApp from 'comm/vues/createApp' // 构建项目
 
-import '../resource/style/index'
+import './resource/style/index.scss'
 
 console.log('环境变量', process.env)
 
