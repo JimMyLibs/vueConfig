@@ -1,5 +1,3 @@
-const conf = require('config/project'); // 项目配置信息
-
 // 项目信息session标识
 const projectInfoSessionId = '__projectInfoSessionId__'
 
@@ -9,11 +7,11 @@ const referrerProjectSessionId = '__referrerProjectSessionId__'
 
 // 打包配置信息
 const ISDEV = process.env.NODE_ENV == 'development'
-const PROJECT_INFO = conf
+const PROJECT_INFO = process.env.PROJECT_INFO
 
 // 获取环境变量信息
 function getEnvInfo() {
-    let projectType = conf.projectType
+    let projectType = PROJECT_INFO.projectType
     return {
         ISDEV,
         projectType,

@@ -270,6 +270,6 @@
         }
         return score;
     }
-module.exports = {
+export default {
     rep,reg,regNot,regFn,regCard,regCom,passwordScore
 }

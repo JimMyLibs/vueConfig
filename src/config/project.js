@@ -9,9 +9,9 @@ const base = {
     projectType: 'h5',  // 项目类型标识，默认为项目父级目录名，如 h5, activity, document, manage
     projectName: 'demo',// 项目名称，即为埋点的项目id 
     projectTitle: '项目标题',
-    appName: '',// 所在APP名称
 
     /* 选填 */
+    appName: '',// 所在APP名称
     prot: 8808,
     isUtm: true,// 是否启用埋点(独立系统)
     isErr: true,// 是否启用异常上报(独立系统:待集成)
@@ -46,7 +46,7 @@ module.exports = {
     /* 不填 */
     projectTag: `${base.projectType}_${base.projectName}`,// 项目标识（如：h5_demo）
     projectPath: resolve(`project/${projectDir}`),// 项目源码根目录绝对路径:[项目类型/项目名称]
-    distPath: resolve(`../dist/${projectDir}`),// 项目输出目录绝对路径
+    distPath: resolve(`dist/${projectDir}`),// 项目输出目录绝对路径
     comm: resolve(`comm`),// 公共目录
     config: resolve(`config`),// 配置文件目录
 

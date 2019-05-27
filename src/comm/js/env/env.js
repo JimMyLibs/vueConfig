@@ -1,4 +1,4 @@
-const { appName } = require('config/project');
+const { appName } = process.env.PROJECT_INFO;
 
 /**
  * 获取当前环境信息，如操作系统，浏览器，当前项目app等信息

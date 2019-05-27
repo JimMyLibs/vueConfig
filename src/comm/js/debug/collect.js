@@ -1,4 +1,4 @@
-import { appName } from 'config/project'
+const { appName } = process.env.PROJECT_INFO;
 
 export var collectBehavior = (function () {
 

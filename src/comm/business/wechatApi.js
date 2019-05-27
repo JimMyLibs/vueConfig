@@ -3,7 +3,8 @@
 import FetchBase from 'comm/js/core/FetchBase'
 import { wechatUrls } from 'config/wechatInfo'
 import { getQueryString } from 'comm/js/url/url'
-const { appName } = require('config/project');
+
+const { appName } = process.env.PROJECT_INFO;
 
 let { authApi, authUrl } = wechatUrls
 
