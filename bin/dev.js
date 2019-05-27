@@ -5,7 +5,7 @@ function resolve(dir) {
     return path.join(__dirname, '.', dir)
 }
 
-export default ()=>{
+module.exports = ()=>{
     return {
         devServer: {
             // host: 'localhost',

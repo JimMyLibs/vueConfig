@@ -1,6 +1,7 @@
 // vue.config.js
 const path = require('path');
-const styleVar = require('./src/resource/style/base/var');
+const { projectPath } = require('./src/config/project');
+const styleVar = require(`${projectPath}/resource/style/theme/var`);
 const bin = {
     base: require("./bin/base"),
     dev: require("./bin/dev"),
@@ -12,7 +13,7 @@ function resolve(dir) {
 }
 
 module.exports = {
-    configureWebpack: config => {
+    chainWebpack: config => {
         if (process.env.NODE_ENV === 'production') {
             return {
                 ...bin.base(config),
