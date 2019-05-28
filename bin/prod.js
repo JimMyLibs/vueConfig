@@ -27,10 +27,10 @@ module.exports = (config) => {
             new PurifyCSSPlugin({
                 paths: glob.sync([
                     resolve(`${projectPath}/public/*.html`),
-                    resolve('./src/**/*.vue'),
-                    resolve('./src/**/*.js'),
-                    resolve('./src/**/*.scss'),
-                    resolve('./src/**/*.css'),
+                    './src/**/*.vue',
+                    './src/**/*.js',
+                    './src/**/*.scss',
+                    './src/**/*.css',
                 ]),
             }),
             // 压缩JS

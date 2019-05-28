@@ -31,7 +31,6 @@ export function fetchApiInfo() {
     const { ISDEV } = getProjectInfo()
     let currentInfo = getApiInfo()
     return new Promise((resolve, reject) => {
-        console.log('______ ISDEV ______', ISDEV, devApiInfo)
         if (ISDEV) {
             resolve(devApiInfo)
         } else {

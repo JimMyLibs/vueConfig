@@ -65,9 +65,11 @@ export default ({
         }
     }
 
+    new Vue(options)
+
     fetchApiInfo().then(res => {
         Vue.config.productionTip = false
-        return new Vue(options)
+        // return new Vue(options)
     }).catch(err => {
         throw new Error(err)
     })
