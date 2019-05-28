@@ -5,9 +5,10 @@ const styleVar = require(`${projectPath}/resource/style/theme/var`);
 module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ? './' : '/',// baseUrl,生产环境可配置子目录
     outputDir: `${distPath}`,
+    productionSourceMap: false,
     pwa: {
         name: 'vue001',
-        manifestPath: `${projectPath}/public/manifest.json`,
+        manifestPath: '/manifest.json',
     },
     devServer: {
         // host: 'localhost',

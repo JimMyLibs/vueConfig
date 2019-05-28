@@ -29,7 +29,17 @@ module.exports = {
             }
         }
     },
-    chainWebpack: (config) =>{
-        
+    chainWebpack: (config) => {
+        if (process.env.NODE_ENV === 'production') {
+            config
+                .plugin('html')
+                .tap(args => {
+                    args[0].template = `${projectPath}/public/index.html`
+                    return args
+                })
+        } else {
+
+        }
+
     },
 }

@@ -40,14 +40,14 @@ module.exports = {
         // 3. ''为不启用mock功能
         type: 'http',// http, node, json, ''
         port: 3000,// mock服务端口号(仅node有效)
-        dir: resolve(`src/mock/${projectDir}`),// mock目录
+        dir: resolve(`../src/mock/${projectDir}`),// mock目录
     },
 
     /* 不填 */
     projectTag: `${base.projectType}_${base.projectName}`,// 项目标识（如：h5_demo）
-    projectPath: resolve(`project/${projectDir}`),// 项目源码根目录绝对路径:[项目类型/项目名称]
-    distPath: resolve(`dist/${projectDir}`),// 项目输出目录绝对路径
-    comm: resolve(`comm`),// 公共目录
-    config: resolve(`config`),// 配置文件目录
+    projectPath: resolve(`../src/project/${projectDir}`),// 项目源码根目录绝对路径:[项目类型/项目名称]
+    distPath: resolve(`../dist/${projectDir}`),// 项目输出目录绝对路径
+    comm: resolve(`../src/comm`),// 公共目录
+    config: resolve(`../src/config`),// 配置文件目录
 
 }
