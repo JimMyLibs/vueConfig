@@ -1,6 +1,7 @@
 // vue.config.js
 const path = require('path');
 const { projectPath } = require('./src/config/project');
+const projectConf = require('./src/config/project');
 const bin = {
     base: require("./bin/base"),
     comm: require("./bin/comm"),
@@ -37,7 +38,21 @@ module.exports = {
                     args[0].template = `${projectPath}/public/index.html`
                     return args
                 })
+            config
+                .plugin('env')
+                .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{
+                    'PROJECT_INFO': JSON.stringify({
+                        ...projectConf,
+                    })
+                }]);
         } else {
+            config
+                .plugin('env')
+                .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{
+                    'PROJECT_INFO': JSON.stringify({
+                        ...projectConf,
+                    })
+                }]);
 
         }
 

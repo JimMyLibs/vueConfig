@@ -11,7 +11,7 @@ const base = {
     projectTitle: '项目标题',
 
     /* 选填 */
-    appName: '',// 所在APP名称
+    appName: 'appName',// 所在APP名称
     prot: 8808,
     isUtm: true,// 是否启用埋点(独立系统)
     isErr: true,// 是否启用异常上报(独立系统:待集成)

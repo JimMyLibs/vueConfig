@@ -10,13 +10,6 @@ function resolve(dir) {
 
 module.exports = (config) => {
     return {
-        plugins: [
-            new webpack.DefinePlugin({
-                'process.env.PROJECT_INFO': JSON.stringify({
-                    ...projectConf,
-                })
-            })
-        ],
         resolve: {
             alias: {
                 comm: resolve('./src/comm'),

@@ -1,4 +1,6 @@
-const { appName } = process.env.PROJECT_INFO;
+import { getProjectInfo } from 'comm/business/projectInfo'
+
+const { appName } = getProjectInfo();
 
 /**
  * 获取当前环境信息，如操作系统，浏览器，当前项目app等信息

@@ -7,7 +7,7 @@ const referrerProjectSessionId = '__referrerProjectSessionId__'
 
 // 打包配置信息
 const ISDEV = process.env.NODE_ENV == 'development'
-const PROJECT_INFO = process.env.PROJECT_INFO
+const PROJECT_INFO = JSON.parse(process.env.PROJECT_INFO);
 
 // 获取环境变量信息
 function getEnvInfo() {

@@ -38,7 +38,7 @@ module.exports = (config) => {
                 uglifyOptions: {// https://github.com/webpack-contrib/uglifyjs-webpack-plugin#uglifyoptions
                     warnings: false,
                     compress: {// https://github.com/mishoo/UglifyJS2#compress-options
-                        drop_console: true,// 移除 console
+                        // drop_console: true,// 移除 console
                         drop_debugger: true,//  移除 debugger
                         booleans: true,// 优化布尔运算
                     },

@@ -1,4 +1,6 @@
-const { appName } = process.env.PROJECT_INFO;
+import { getProjectInfo } from 'comm/business/projectInfo'
+
+const { appName } = getProjectInfo();
 
 export var collectBehavior = (function () {
 
