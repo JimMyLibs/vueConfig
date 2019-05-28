@@ -31,7 +31,7 @@ export function isIOS() {
 
 // 获取当前项目app版本号
 export function getAppVersion() {
-    const reg = new RegExp(appName+'\\\/([\\d.]+)');
+    const reg = new RegExp(appName+'/([\\d.]+)');
     const matchArr = ua.match(reg)
     return matchArr
         ? matchArr[1]

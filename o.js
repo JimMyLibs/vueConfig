@@ -12,7 +12,7 @@
     child_process: 'empty'
   },
   output: {
-    path: 'd:\\work\\home\\vueConfig\\dist',
+    path: 'd:\\work\\home\\vueConfig\\src\\dist\\h5\\demo',
     filename: '[name].js',
     publicPath: '/',
     globalObject: 'this'
@@ -21,8 +21,8 @@
     alias: {
       '@': 'd:\\work\\home\\vueConfig\\src',
       vue$: 'vue/dist/vue.runtime.esm.js',
-      comm: 'd:\\work\\home\\vueConfig\\bin\\src\\comm',
-      config: 'd:\\work\\home\\vueConfig\\bin\\src\\config'
+      comm: 'd:\\work\\home\\vueConfig\\src\\comm',
+      config: 'd:\\work\\home\\vueConfig\\src\\config'
     },
     extensions: [
       '.mjs',
@@ -58,7 +58,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: 'd:\\work\\home\\vueConfig\\node_modules\\.cache\\vue-loader',
-              cacheIdentifier: '4ba3412f'
+              cacheIdentifier: 'c9380e52'
             }
           },
           {
@@ -68,7 +68,7 @@
                 preserveWhitespace: false
               },
               cacheDirectory: 'd:\\work\\home\\vueConfig\\node_modules\\.cache\\vue-loader',
-              cacheIdentifier: '4ba3412f'
+              cacheIdentifier: 'c9380e52'
             }
           }
         ]
@@ -957,7 +957,7 @@
             loader: 'cache-loader',
             options: {
               cacheDirectory: 'd:\\work\\home\\vueConfig\\node_modules\\.cache\\babel-loader',
-              cacheIdentifier: 'c73b83c6'
+              cacheIdentifier: '555a4f3c'
             }
           },
           {
@@ -983,7 +983,7 @@
                 '.vue'
               ],
               cache: true,
-              cacheIdentifier: 'b1e3d3a8',
+              cacheIdentifier: '370a279f',
               emitWarning: true,
               emitError: false,
               eslintPath: 'd:\\work\\home\\vueConfig\\node_modules\\eslint\\lib\\api.js',
@@ -1033,7 +1033,8 @@
     /* config.plugin('pwa') */
     new HtmlPwaPlugin(
       {
-        name: 'vueJs'
+        name: 'vueJs',
+        manifestPath: 'd:\\work\\home\\vueConfig\\src\\project\\h5\\demo/public/manifest.json'
       }
     ),
     /* config.plugin('preload') */
@@ -1055,73 +1056,8 @@
       }
     ),
     {
-      apply: function () { /* omitted long function */ }
-    },
-    {
-      options: {
-        manifest: {
-          name: 'vues_724215f4',
-          content: {
-            './node_modules/webpack/buildin/global.js': {
-              id: 0,
-              buildMeta: {
-                providedExports: true
-              }
-            },
-            './node_modules/vue/dist/vue.runtime.esm.js': {
-              id: 2,
-              buildMeta: {
-                exportsType: 'namespace',
-                providedExports: [
-                  'default'
-                ]
-              }
-            },
-            './node_modules/timers-browserify/main.js': {
-              id: 3,
-              buildMeta: {
-                providedExports: true
-              }
-            },
-            './node_modules/setimmediate/setImmediate.js': {
-              id: 4,
-              buildMeta: {
-                providedExports: true
-              }
-            },
-            './node_modules/process/browser.js': {
-              id: 5,
-              buildMeta: {
-                providedExports: true
-              }
-            },
-            './node_modules/vue-router/dist/vue-router.esm.js': {
-              id: 6,
-              buildMeta: {
-                exportsType: 'namespace',
-                providedExports: [
-                  'default'
-                ]
-              }
-            },
-            './node_modules/vuex/dist/vuex.esm.js': {
-              id: 7,
-              buildMeta: {
-                exportsType: 'namespace',
-                providedExports: [
-                  'default',
-                  'Store',
-                  'install',
-                  'mapState',
-                  'mapMutations',
-                  'mapGetters',
-                  'mapActions',
-                  'createNamespacedHelpers'
-                ]
-              }
-            }
-          }
-        }
+      definitions: {
+        'process.env.PROJECT_INFO': '{"projectType":"h5","projectName":"demo","projectTitle":"项目标题","appName":"","prot":8808,"isUtm":true,"isErr":true,"isPerf":true,"isConsole":true,"isTip":true,"loginUrl":"","version":"1.0.0","author":"jim","dll":{"version":"3.0.0","dist":"d:\\\\work\\\\home\\\\vueConfig\\\\dist\\\\dll"},"projectDir":"h5/demo","mock":{"type":"http","port":3000,"dir":"d:\\\\work\\\\home\\\\vueConfig\\\\src\\\\src\\\\mock\\\\h5\\\\demo"},"projectTag":"h5_demo","projectPath":"d:\\\\work\\\\home\\\\vueConfig\\\\src\\\\project\\\\h5\\\\demo","distPath":"d:\\\\work\\\\home\\\\vueConfig\\\\src\\\\dist\\\\h5\\\\demo","comm":"d:\\\\work\\\\home\\\\vueConfig\\\\src\\\\comm","config":"d:\\\\work\\\\home\\\\vueConfig\\\\src\\\\config"}'
       }
     }
   ],
@@ -1130,11 +1066,8 @@
       'd:\\work\\home\\vueConfig\\src\\project\\h5\\demo/main.js'
     ]
   },
-  publicPath: '/',
-  outputDir: 'd:\\work\\home\\vueConfig\\bin\\dist',
-  assetsDir: '',
   devServer: {
-    port: '8080',
+    port: '3001',
     https: false,
     open: false,
     proxy: {

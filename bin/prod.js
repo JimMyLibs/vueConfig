@@ -13,7 +13,7 @@ function resolve(dir) {
     return path.join(__dirname, '.', dir)
 }
 
-module.exports = ()=>{
+module.exports = (config)=>{
     return {
         productionSourceMap: false,
         plugins: [
