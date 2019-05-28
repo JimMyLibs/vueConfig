@@ -54,7 +54,16 @@ export default ({
     let options = {
         el,
         store: globalStore(projectStore),
-        render: h => h(App)
+        render: h => h(App),
+        created(){
+            fetchApiInfo().then(res => {
+                Vue.config.productionTip = false
+                return console.log('请求文件正常');
+            }).catch(err => {
+                this.$tip('apiSource请求失败')
+                throw new Error(err)
+            })
+        },
     }
 
     if (typeof router !== 'undefined') {
@@ -67,11 +76,5 @@ export default ({
 
     new Vue(options)
 
-    fetchApiInfo().then(res => {
-        Vue.config.productionTip = false
-        // return new Vue(options)
-    }).catch(err => {
-        throw new Error(err)
-    })
 
 }

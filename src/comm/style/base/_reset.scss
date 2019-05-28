@@ -17,6 +17,8 @@ html,body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,
 body {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: transparent;/* 移动端取消touch高亮效果 */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
