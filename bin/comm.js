@@ -1,6 +1,5 @@
 // vue.config.js
 const path = require('path');
-const webpack = require('webpack')
 const projectConf = require('../src/config/project');
 
 // 生成目录
@@ -9,12 +8,14 @@ function resolve(dir) {
 }
 
 module.exports = (config) => {
-    return {
-        resolve: {
-            alias: {
-                comm: resolve('./src/comm'),
-                config: resolve('./src/config'),
-            }
-        },
-    }
+    config
+        .plugin('env')
+        .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{
+            'PROJECT_INFO': JSON.stringify({
+                ...projectConf,
+            })
+        }]);
+    config.resolve.alias
+        .set('comm', resolve('./src/comm'))
+        .set('config', resolve('./src/config'))
 }

@@ -58,7 +58,7 @@ export default ({
         created(){
             fetchApiInfo().then(res => {
                 Vue.config.productionTip = false
-                return console.log('请求文件正常');
+                return;
             }).catch(err => {
                 this.$tip('apiSource请求失败')
                 throw new Error(err)

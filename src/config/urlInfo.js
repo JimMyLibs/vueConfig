@@ -13,7 +13,7 @@ const origin = location.origin
 // 公共url地址
 export const publicUrls = {
     // aip文件对应服务器地址
-    apiHost: `${origin}/h5/h5-base/json/apiSource.v1.json`,
+    apiHost: `${origin}/api/apiSource.v1.json`,
 
     // 微信授权页面地址
     about: `${origin}/h5/app/weixinAuth.html`,

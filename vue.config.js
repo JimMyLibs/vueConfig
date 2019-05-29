@@ -20,17 +20,17 @@ module.exports = {
         config.entry.app = [`${projectPath}/main.js`];
         if (process.env.NODE_ENV === 'production') {
             return {
-                ...bin.comm(config),
                 ...bin.prod(config),
             }
         } else {
             return {
-                ...bin.comm(config),
                 ...bin.dev(config),
             }
         }
     },
     chainWebpack: (config) => {
+        bin.comm(config);
+
         if (process.env.NODE_ENV === 'production') {
             config
                 .plugin('html')
@@ -38,21 +38,7 @@ module.exports = {
                     args[0].template = `${projectPath}/public/index.html`
                     return args
                 })
-            config
-                .plugin('env')
-                .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{
-                    'PROJECT_INFO': JSON.stringify({
-                        ...projectConf,
-                    })
-                }]);
         } else {
-            config
-                .plugin('env')
-                .use(require.resolve('webpack/lib/EnvironmentPlugin'), [{
-                    'PROJECT_INFO': JSON.stringify({
-                        ...projectConf,
-                    })
-                }]);
 
         }
 

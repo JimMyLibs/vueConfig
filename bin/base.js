@@ -8,7 +8,7 @@ module.exports = {
     productionSourceMap: false,
     pwa: {
         name: 'vue001',
-        manifestPath: '/manifest.json',
+        manifestPath: './manifest.json',
     },
     devServer: {
         // host: 'localhost',
