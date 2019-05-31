@@ -1,5 +1,5 @@
 import { user } from 'comm/business/user'
-import Http from 'comm/js/http/Http'
+import Http from 'comm/js/http/Fetch'
 import { getBrowserInfo, getOs } from 'comm/js/env/env'
 import { getUUID } from 'comm/js/utils/utils'
 import { fetchApiInfo } from 'comm/business/commApi'

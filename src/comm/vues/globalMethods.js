@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import { mapActions, mapMutations } from 'vuex'
-import Http from 'comm/js/http/Http'
+import Http from 'comm/js/http/Fetch'
 import Native from 'comm/js/Native/Native'
 import { getProjectInfo } from 'comm/business/projectInfo'
 import { checkResponse } from 'comm/business/commApi'
