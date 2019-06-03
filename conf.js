@@ -10,7 +10,7 @@ module.exports = {
   // 1. json为读取本地json文件方式
   // 2. node为本地node服务，该形式需启用node服务（npm run mock）
   // 3. ''为不启用mock功能
-  mockType: 'json', // node, json, ''
+  mockType: '', // node, json, ''
 
   // mock服务端口号
   mockPort: '3000',

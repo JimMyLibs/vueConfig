@@ -20,7 +20,7 @@ const routes = new VueRouter({
     }
   }, {
     path: '/fetch',
-    component: () => import('../pages/Fetch'),
+    component: () => require('../pages/Fetch'),
     meta: {
       // isLogin: true,
       title: 'demo-fetch',
@@ -28,7 +28,7 @@ const routes = new VueRouter({
     }
   }, {
     path: '/components',
-    component: () => import('../pages/Components'),
+    component: () => require('../pages/Components'),
     meta: {
       // isLogin: true,
       title: 'demo-components',
