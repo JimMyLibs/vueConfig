@@ -1,10 +1,9 @@
-const single2doubleDeep = (arr)=>{
-    return arr.reduce((sum, item, index, arr)=>{
-        if(arr.length%2==1 && index==arr.length-1){
-            sum.push([arr[index]])
-        }else if(index%2==1){
-            sum.push([arr[index-1],arr[index]])
-        }		
+// cut one-dimensional arrays into two-dimensional arrays
+// unitNum: number of units
+const cutArray = (arr,unitNum=2)=>{
+    return arr.reduce((sum, item, index, arr)=>{	
+		const curStep = arr.slice(sum.length*unitNum,(sum.length+1)*unitNum);
+        !!curStep.length&&sum.push(curStep)
         return sum;
     },[])
 }
